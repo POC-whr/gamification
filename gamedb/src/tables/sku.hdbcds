@@ -1,0 +1,10 @@
+namespace novogame.gamedb.tables;
+
+Context sku {
+
+	Entity sku {	
+	id          : String(50);
+	ProductId   : String(50);
+	IsActive    : String(50);
+	}
+};

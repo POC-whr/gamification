@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="novogame.gamedb.views::recepSeller" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="recepSeller"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="novogame.gamedb.tables::seller.seller">
+    <resourceUri>novogame.gamedb.tables::seller.seller</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="TB_SELLER">
+    <viewAttributes>
+      <viewAttribute id="SkuSellerId"/>
+      <viewAttribute id="sellerId"/>
+      <viewAttribute id="StockKeepingUnitId"/>
+      <viewAttribute id="SellerStockKeepingUnitId"/>
+      <viewAttribute id="isActive"/>
+      <viewAttribute id="UpdateDate"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="novogame.gamedb.tables::seller.seller"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="TB_SELLER">
+  <attributes>
+    <attribute id="SkuSellerId" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SkuSellerId"/>
+      <keyMapping columnObjectName="TB_SELLER" columnName="SkuSellerId"/>
+    </attribute>
+    <attribute id="sellerId" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="sellerId"/>
+      <keyMapping columnObjectName="TB_SELLER" columnName="sellerId"/>
+    </attribute>
+    <attribute id="StockKeepingUnitId" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="StockKeepingUnitId"/>
+      <keyMapping columnObjectName="TB_SELLER" columnName="StockKeepingUnitId"/>
+    </attribute>
+    <attribute id="SellerStockKeepingUnitId" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SellerStockKeepingUnitId"/>
+      <keyMapping columnObjectName="TB_SELLER" columnName="SellerStockKeepingUnitId"/>
+    </attribute>
+    <attribute id="isActive" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="isActive"/>
+      <keyMapping columnObjectName="TB_SELLER" columnName="isActive"/>
+    </attribute>
+    <attribute id="UpdateDate" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="UpdateDate"/>
+      <keyMapping columnObjectName="TB_SELLER" columnName="UpdateDate"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="TB_SELLER" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="202"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

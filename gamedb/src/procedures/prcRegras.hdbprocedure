@@ -1,0 +1,27 @@
+PROCEDURE "novogame.gamedb.procedures::prcRegras"
+(
+	IN paramin "novogame.gamedb.tables::regrasPontuacao.regrasPontuacao"
+	
+)
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+   AS
+BEGIN
+  
+  UPSERT "novogame.gamedb.tables::regrasPontuacao.regrasPontuacao"
+  (
+  	"tipoPedido",                   
+	"cadastroProduto",               
+	"cadastroCategoria",            
+	"descricao"   
+  )
+  SELECT 
+    "tipoPedido",                   
+	"cadastroProduto",               
+	"cadastroCategoria",            
+	"descricao"	
+	
+  FROM  :paramin;
+  
+END
