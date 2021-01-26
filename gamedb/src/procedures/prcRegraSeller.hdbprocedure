@@ -1,0 +1,25 @@
+PROCEDURE "novogame.gamedb.procedures::prcRegraSeller"
+(
+	IN paramin "novogame.gamedb.tables::regraSeller.regraSeller"
+)
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+   AS
+BEGIN
+
+	UPSERT "novogame.gamedb.tables::regraSeller.regraSeller"
+	(
+		"idSeller",
+		"idRegra",
+		"seller",
+		"status"
+	)
+	SELECT
+		"idSeller",
+		"idRegra",
+		"seller",
+		"status"
+	FROM :paramin;
+
+END

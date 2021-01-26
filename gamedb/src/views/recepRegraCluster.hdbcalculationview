@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="novogame.gamedb.views::recepRegraCluster" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="recepRegraCluster"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="novogame.gamedb.tables::regraCluster.regraCluster">
+    <resourceUri>novogame.gamedb.tables::regraCluster.regraCluster</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="tb_regraCluster">
+    <viewAttributes>
+      <viewAttribute id="idCluster"/>
+      <viewAttribute id="idRegra"/>
+      <viewAttribute id="cluster"/>
+      <viewAttribute id="status"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="novogame.gamedb.tables::regraCluster.regraCluster"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="tb_regraCluster">
+  <attributes>
+    <attribute id="idCluster" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="idCluster"/>
+      <keyMapping columnObjectName="tb_regraCluster" columnName="idCluster"/>
+    </attribute>
+    <attribute id="idRegra" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="idRegra"/>
+      <keyMapping columnObjectName="tb_regraCluster" columnName="idRegra"/>
+    </attribute>
+    <attribute id="cluster" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="cluster"/>
+      <keyMapping columnObjectName="tb_regraCluster" columnName="cluster"/>
+    </attribute>
+    <attribute id="status" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="status"/>
+      <keyMapping columnObjectName="tb_regraCluster" columnName="status"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="92" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="tb_regraCluster" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="217"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

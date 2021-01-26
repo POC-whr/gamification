@@ -1,27 +1,37 @@
 PROCEDURE "novogame.gamedb.procedures::prcRegras"
-(
-	IN paramin "novogame.gamedb.tables::regrasPontuacao.regrasPontuacao"
-	
+( 
+	IN paramin "novogame.gamedb.tables::regras.regras"
 )
    LANGUAGE SQLSCRIPT
    SQL SECURITY INVOKER
    --DEFAULT SCHEMA <default_schema_name>
    AS
 BEGIN
-  
-  UPSERT "novogame.gamedb.tables::regrasPontuacao.regrasPontuacao"
+
+  UPSERT "novogame.gamedb.tables::regras.regras"
   (
-  	"tipoPedido",                   
-	"cadastroProduto",               
-	"cadastroCategoria",            
-	"descricao"   
+		"idRegra",
+		"tipoRegra",
+		"cluster",
+		"comprador",
+		"indicador",
+		"dataInicio",
+		"dataFim",
+		"user",
+		"creationDate",
+		"status"
   )
   SELECT 
-    "tipoPedido",                   
-	"cadastroProduto",               
-	"cadastroCategoria",            
-	"descricao"	
-	
-  FROM  :paramin;
+		"idRegra",
+		"tipoRegra",
+		"cluster",
+		"comprador",
+		"indicador",
+		"dataInicio",
+		"dataFim",
+		"user",
+		"creationDate",
+		"status"   
+ FROM  :paramin;
   
 END

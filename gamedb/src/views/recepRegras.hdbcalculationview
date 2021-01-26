@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="novogame.gamedb.views::recepRegras" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="recepRegras"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="novogame.gamedb.tables::regras.regras">
+    <resourceUri>novogame.gamedb.tables::regras.regras</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="tb_regras">
+    <viewAttributes>
+      <viewAttribute id="idRegra"/>
+      <viewAttribute id="tipoRegra"/>
+      <viewAttribute id="cluster"/>
+      <viewAttribute id="comprador"/>
+      <viewAttribute id="indicador"/>
+      <viewAttribute id="dataInicio"/>
+      <viewAttribute id="dataFim"/>
+      <viewAttribute id="user"/>
+      <viewAttribute id="creationDate"/>
+      <viewAttribute id="status"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="novogame.gamedb.tables::regras.regras"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="tb_regras">
+  <attributes>
+    <attribute id="idRegra" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="idRegra"/>
+      <keyMapping columnObjectName="tb_regras" columnName="idRegra"/>
+    </attribute>
+    <attribute id="tipoRegra" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="tipoRegra"/>
+      <keyMapping columnObjectName="tb_regras" columnName="tipoRegra"/>
+    </attribute>
+    <attribute id="cluster" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="cluster"/>
+      <keyMapping columnObjectName="tb_regras" columnName="cluster"/>
+    </attribute>
+    <attribute id="comprador" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="comprador"/>
+      <keyMapping columnObjectName="tb_regras" columnName="comprador"/>
+    </attribute>
+    <attribute id="indicador" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="indicador"/>
+      <keyMapping columnObjectName="tb_regras" columnName="indicador"/>
+    </attribute>
+    <attribute id="dataInicio" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="dataInicio"/>
+      <keyMapping columnObjectName="tb_regras" columnName="dataInicio"/>
+    </attribute>
+    <attribute id="dataFim" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="dataFim"/>
+      <keyMapping columnObjectName="tb_regras" columnName="dataFim"/>
+    </attribute>
+    <attribute id="user" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="user"/>
+      <keyMapping columnObjectName="tb_regras" columnName="user"/>
+    </attribute>
+    <attribute id="creationDate" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="creationDate"/>
+      <keyMapping columnObjectName="tb_regras" columnName="creationDate"/>
+    </attribute>
+    <attribute id="status" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="status"/>
+      <keyMapping columnObjectName="tb_regras" columnName="status"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="92" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="tb_regras" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="217"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

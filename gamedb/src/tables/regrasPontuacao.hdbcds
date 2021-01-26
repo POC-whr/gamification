@@ -4,7 +4,7 @@ context regrasPontuacao {
 
 	entity regrasPontuacao {
 
-		idRegraPontuacao            : String(25);
+		idRegraPontuacao                : String(25);
 		tipoPedido                      : String(25);
 		cadastroProduto                 : String(25);
 		cadastroCategoria               : String(25);

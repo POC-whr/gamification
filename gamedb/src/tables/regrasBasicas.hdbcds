@@ -1,0 +1,14 @@
+namespace novogame.gamedb.tables;
+
+context regrasBasicas {
+
+	entity regrasBasicas {
+	
+		idRegraBasica : String(32);
+		cluster       : String(15);
+		comprador     : Decimal(15,2);
+		indicador     : Decimal(15,2);
+		dataInicio    : UTCDateTime;
+		dataFim       : UTCDateTime;
+	}
+};
