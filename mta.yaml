@@ -21,6 +21,33 @@ modules:
       properties:
          url: ${default-url}
 
+
+ 
+
+
+ 
+
+
+ 
+
+
+ - name: tools
+   type: nodejs
+   path: tools
+   provides:
+    - name: tools_api
+      properties:
+         url: ${default-url}
+
+
+ - name: persist
+   type: nodejs
+   path: persist
+   provides:
+    - name: persist_api
+      properties:
+         url: ${default-url}
+
 resources:
  - name: hdi_gamedb
    properties:
