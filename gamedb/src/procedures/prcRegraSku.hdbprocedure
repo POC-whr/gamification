@@ -1,0 +1,23 @@
+PROCEDURE "novogame.gamedb.procedures::prcRegraSku"
+( 
+	IN paramin "novogame.gamedb.tables::regraSku.regraSku"
+)
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+   AS
+BEGIN
+	UPSERT "novogame.gamedb.tables::regraSku.regraSku"
+	(
+		"idSku",
+		"idRegra",
+		"sku",
+		"status"  
+	)
+	SELECT
+		"idSku",
+		"idRegra",
+		"sku",
+		"status" 	
+	FROM :paramin;
+END

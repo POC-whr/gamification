@@ -1,0 +1,48 @@
+namespace novogame.gamedb.tables;
+
+context regrasPontuacao {
+
+	entity regrasPontuacao {
+
+		idRegraPontuacao                : String(25);
+		tipoPedido                      : String(25);
+		cadastroProduto                 : String(25);
+		cadastroCategoria               : String(25);
+		descricao                       : String(350);
+		utmOrigem                       : UTCTimestamp;
+		utmTransacao                    : UTCTimestamp;
+		canalVenda                      : String(15);
+		seller                          : String(25);
+		clusterComprador                : String(6);
+		clusterIndicador                : String(6);
+		idInstancia                     : String(15);
+		pontComprPadrao                 : Decimal(15,2);
+		pontComprColaborador            : Decimal(15,2);
+		pontIndicPadrao                 : Decimal(15,2);
+		pontIndicColaborador            : Decimal(15,2);
+		frete                           : Boolean;
+		desconto                        : Boolean;
+		servicos                        : Boolean;
+		ativo                           : Boolean;
+		validade                        : Integer;
+		vigenciaInicial                 : UTCDateTime;
+		vigenciaFinal                   : UTCDateTime;
+		percentualPadrao                : Decimal(15,2);
+		percentualColaborador           : Decimal(15,2);
+		percentualIndicadorPadrao       : Decimal(15,2);
+		percentualIndicadorColaborador  : Decimal(15,2);
+		restringirPorCategoria          : Boolean;
+		permitirCategoria               : Boolean;
+		categoriesIds                   : String(5);
+		isOutlet                        : Boolean;
+		isGae                           : Boolean;
+		restringirPorSku                : Boolean;
+		restringirPorSkuValorAproximado : Boolean;
+		skuRefIdList                    : Boolean;
+		permitirSku                     : Boolean;
+		usuarioInclusao                 : String(25);
+		dataHoraInclusao                : UTCDateTime;
+		usuarioAlteracao                : String(25);
+		dataHoraAlteracao               : UTCDateTime;
+	}	
+};

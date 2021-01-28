@@ -1,0 +1,8 @@
+service 
+{
+    /*Get rules*/
+    "novogame.gamedb.src.views::regrasPontuacao" as "cvRegrasPontuacao" key ("idRegraPontuacao");
+    
+    	//create using
+    	//update using
+}

@@ -1,0 +1,23 @@
+PROCEDURE "novogame.gamedb.procedures::prcRegraCluster"
+(
+	IN paramin "novogame.gamedb.tables::regraCluster.regraCluster"
+)
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+   AS
+BEGIN
+	UPSERT "novogame.gamedb.tables::regraCluster.regraCluster"
+	(
+		"idCluster", 
+		"idRegra",   
+		"cluster",   
+		"status"   	
+	)
+	SELECT
+		"idCluster", 
+		"idRegra",   
+		"cluster",   
+		"status"   	
+	FROM :paramin;
+END

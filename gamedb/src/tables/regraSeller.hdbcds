@@ -1,0 +1,12 @@
+namespace novogame.gamedb.tables;
+
+context regraSeller {
+	
+	entity regraSeller {
+		
+		idSeller : String(32);
+		idRegra  : String(32);
+		seller   : String(50);
+		status   : String(1);
+	}
+};

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="novogame.gamedb.views::recepRegraCategoria" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="recepRegraCategoria"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="novogame.gamedb.tables::regraCategoria.regraCategoria">
+    <resourceUri>novogame.gamedb.tables::regraCategoria.regraCategoria</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="tb_regraCategoria">
+    <viewAttributes>
+      <viewAttribute id="idCategoria"/>
+      <viewAttribute id="idRegra"/>
+      <viewAttribute id="categoria"/>
+      <viewAttribute id="status"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="novogame.gamedb.tables::regraCategoria.regraCategoria"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="tb_regraCategoria">
+  <attributes>
+    <attribute id="idCategoria" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="idCategoria"/>
+      <keyMapping columnObjectName="tb_regraCategoria" columnName="idCategoria"/>
+    </attribute>
+    <attribute id="idRegra" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="idRegra"/>
+      <keyMapping columnObjectName="tb_regraCategoria" columnName="idRegra"/>
+    </attribute>
+    <attribute id="categoria" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="categoria"/>
+      <keyMapping columnObjectName="tb_regraCategoria" columnName="categoria"/>
+    </attribute>
+    <attribute id="status" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="status"/>
+      <keyMapping columnObjectName="tb_regraCategoria" columnName="status"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="92" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="tb_regraCategoria" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="217"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

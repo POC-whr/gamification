@@ -1,0 +1,9 @@
+namespace novogame.gamedb.tables;
+
+context categorias {
+
+	entity categorias {
+		id   : String(50);
+		name : String(50);
+	}
+};

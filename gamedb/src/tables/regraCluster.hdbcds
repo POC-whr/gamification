@@ -1,0 +1,12 @@
+namespace novogame.gamedb.tables;
+
+context regraCluster {
+
+	entity regraCluster {
+		
+		idCluster : String(32);
+		idRegra   : String(32);
+		cluster   : String(32);
+		status    : String(1);
+	}
+};

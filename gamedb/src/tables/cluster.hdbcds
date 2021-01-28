@@ -1,0 +1,27 @@
+namespace novogame.gamedb.tables;
+
+context cluster {
+
+	entity cluster {
+		IdCluster	                    : String(50);
+		Nome							: String(50);
+		Descricao						: String(100);
+		IsClusterColaborador			: String(50);
+		MetaReceitaUpgrade				: String(50);
+		MetaCreditoUpgrade				: String(50);
+		MetaReceitaDowngrade			: String(50);
+		MetaCreditoDowngrade			: String(50);
+		NivelAnterior					: String(50);
+		IsPermitirIngressarPartirSku	: String(50);
+		ListaSku						: String(50);
+		IsActive						: String(50);
+		EnviarCrm						: String(50);
+		EnviadoCrm						: String(50);
+		QuantidadeTentativasCrm			: String(50);
+		DataHoraEnvioCrm				: String(50);
+		UsuarioAlteracao				: String(50);
+		CreationDateTime				: String(50);
+		Usuarioinclusao					: String(50);
+		UpdateDateTime					: String(50);
+	}
+};
