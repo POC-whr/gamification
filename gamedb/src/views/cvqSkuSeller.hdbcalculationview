@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="novogame.gamedb.views::cvqSkuSeller" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="cvqSkuSeller"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="novogame.gamedb.views.recep::cvqtSkuSeller">
+    <resourceUri>novogame.gamedb.views.recep::cvqtSkuSeller</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="CV_skuSeller">
+    <viewAttributes>
+      <viewAttribute id="skuSellerId"/>
+      <viewAttribute id="sellerId"/>
+      <viewAttribute id="stockKeepingUnitId"/>
+      <viewAttribute id="sellerStockKeepingUnitId"/>
+      <viewAttribute id="isActive"/>
+      <viewAttribute id="updateDate"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="novogame.gamedb.views.recep::cvqtSkuSeller"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="CV_skuSeller">
+  <attributes>
+    <attribute id="skuSellerId" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="skuSellerId"/>
+      <keyMapping columnObjectName="CV_skuSeller" columnName="skuSellerId"/>
+    </attribute>
+    <attribute id="sellerId" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="sellerId"/>
+      <keyMapping columnObjectName="CV_skuSeller" columnName="sellerId"/>
+    </attribute>
+    <attribute id="stockKeepingUnitId" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="stockKeepingUnitId"/>
+      <keyMapping columnObjectName="CV_skuSeller" columnName="stockKeepingUnitId"/>
+    </attribute>
+    <attribute id="sellerStockKeepingUnitId" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="sellerStockKeepingUnitId"/>
+      <keyMapping columnObjectName="CV_skuSeller" columnName="sellerStockKeepingUnitId"/>
+    </attribute>
+    <attribute id="isActive" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="isActive"/>
+      <keyMapping columnObjectName="CV_skuSeller" columnName="isActive"/>
+    </attribute>
+    <attribute id="updateDate" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="updateDate"/>
+      <keyMapping columnObjectName="CV_skuSeller" columnName="updateDate"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="CV_skuSeller" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="203"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

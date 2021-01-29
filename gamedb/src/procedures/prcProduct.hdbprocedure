@@ -1,0 +1,23 @@
+PROCEDURE "novogame.gamedb.procedures::prcProduct"
+(
+	IN paramin "novogame.gamedb.tables::product.product"
+)
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+   AS
+BEGIN
+
+	UPSERT "novogame.gamedb.tables::product.product"
+	(
+		"id",              
+		"productId",       
+		"productCategories"
+	)
+	SELECT
+		"id",              
+		"productId",        
+		"productCategories" 
+	FROM :paramin;
+	
+END

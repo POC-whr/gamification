@@ -1,0 +1,29 @@
+PROCEDURE "novogame.gamedb.procedures::prcSkuSeller"
+(
+	IN paramin "novogame.gamedb.tables::skuSeller.skuSeller"
+)
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+   AS
+BEGIN
+
+	UPSERT "novogame.gamedb.tables::skuSeller.skuSeller"
+	(
+		"skuSellerId",              
+		"sellerId",                
+		"stockKeepingUnitId",      
+		"sellerStockKeepingUnitId", 
+		"isActive",                 
+		"updateDate"               
+	)
+	SELECT
+		"skuSellerId",              
+		"sellerId",                
+		"stockKeepingUnitId",      
+		"sellerStockKeepingUnitId", 
+		"isActive",                 
+		"updateDate"  
+	FROM :paramin;
+
+END

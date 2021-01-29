@@ -1,0 +1,10 @@
+namespace novogame.gamedb.tables;
+
+context product {
+
+	entity product{
+		id                : String(50);
+		productId         : String(50);
+		productCategories : String(500);
+	}
+};

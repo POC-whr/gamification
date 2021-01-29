@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="novogame.gamedb.views::cvqProduct" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="cvqProduct"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="novogame.gamedb.views.recep::cvqtProduct">
+    <resourceUri>novogame.gamedb.views.recep::cvqtProduct</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="CV_product">
+    <viewAttributes>
+      <viewAttribute id="id"/>
+      <viewAttribute id="productId"/>
+      <viewAttribute id="productCategories"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="novogame.gamedb.views.recep::cvqtProduct"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="CV_product">
+  <attributes>
+    <attribute id="id" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="id"/>
+      <keyMapping columnObjectName="CV_product" columnName="id"/>
+    </attribute>
+    <attribute id="productId" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="productId"/>
+      <keyMapping columnObjectName="CV_product" columnName="productId"/>
+    </attribute>
+    <attribute id="productCategories" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="productCategories"/>
+      <keyMapping columnObjectName="CV_product" columnName="productCategories"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="92" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="CV_product" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="217"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

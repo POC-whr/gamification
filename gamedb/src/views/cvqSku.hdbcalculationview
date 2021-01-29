@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="novogame.gamedb.views::cvqSku" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="cvqSku"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="novogame.gamedb.views.recep::cvqtSku">
+    <resourceUri>novogame.gamedb.views.recep::cvqtSku</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="CV_sku">
+    <viewAttributes>
+      <viewAttribute id="productId"/>
+      <viewAttribute id="isActive"/>
+      <viewAttribute id="id"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="novogame.gamedb.views.recep::cvqtSku"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="CV_sku">
+  <attributes>
+    <attribute id="productId" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="productId"/>
+      <keyMapping columnObjectName="CV_sku" columnName="productId"/>
+    </attribute>
+    <attribute id="isActive" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="isActive"/>
+      <keyMapping columnObjectName="CV_sku" columnName="isActive"/>
+    </attribute>
+    <attribute id="id" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="id"/>
+      <keyMapping columnObjectName="CV_sku" columnName="id"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="CV_sku" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="197"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
