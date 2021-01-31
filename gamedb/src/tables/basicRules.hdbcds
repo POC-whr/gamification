@@ -1,0 +1,17 @@
+namespace novogame.gamedb.tables;
+
+context basicRules {
+	
+	entity basicRules {
+		"id"           : String(32);
+		"cluster"      : String(15);
+		"buyer"        : Decimal(15,2);
+		"indicator"    : Decimal(15,2);
+		"initialDate"  : UTCDateTime;
+		"finalDate"    : UTCDateTime;
+		"user"         : String(20);
+		"creationDate" : UTCDateTime;
+		"type"         : String(20);
+		"status"       : String(1);
+	}
+};

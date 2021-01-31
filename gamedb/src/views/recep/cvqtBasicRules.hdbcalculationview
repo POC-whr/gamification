@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="novogame.gamedb.views.recep::cvqtBasicRules" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="cvqtBasicRules"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="novogame.gamedb.tables::basicRules.basicRules">
+    <resourceUri>novogame.gamedb.tables::basicRules.basicRules</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="TB_basicRules">
+    <viewAttributes>
+      <viewAttribute id="id"/>
+      <viewAttribute id="cluster"/>
+      <viewAttribute id="buyer"/>
+      <viewAttribute id="indicator"/>
+      <viewAttribute id="initialDate"/>
+      <viewAttribute id="finalDate"/>
+      <viewAttribute id="user"/>
+      <viewAttribute id="creationDate"/>
+      <viewAttribute id="type"/>
+      <viewAttribute id="status"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="novogame.gamedb.tables::basicRules.basicRules"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="TB_basicRules">
+  <attributes>
+    <attribute id="id" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="id"/>
+      <keyMapping columnObjectName="TB_basicRules" columnName="id"/>
+    </attribute>
+    <attribute id="cluster" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="cluster"/>
+      <keyMapping columnObjectName="TB_basicRules" columnName="cluster"/>
+    </attribute>
+    <attribute id="buyer" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="buyer"/>
+      <keyMapping columnObjectName="TB_basicRules" columnName="buyer"/>
+    </attribute>
+    <attribute id="indicator" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="indicator"/>
+      <keyMapping columnObjectName="TB_basicRules" columnName="indicator"/>
+    </attribute>
+    <attribute id="initialDate" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="initialDate"/>
+      <keyMapping columnObjectName="TB_basicRules" columnName="initialDate"/>
+    </attribute>
+    <attribute id="finalDate" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="finalDate"/>
+      <keyMapping columnObjectName="TB_basicRules" columnName="finalDate"/>
+    </attribute>
+    <attribute id="user" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="user"/>
+      <keyMapping columnObjectName="TB_basicRules" columnName="user"/>
+    </attribute>
+    <attribute id="creationDate" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="creationDate"/>
+      <keyMapping columnObjectName="TB_basicRules" columnName="creationDate"/>
+    </attribute>
+    <attribute id="type" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="type"/>
+      <keyMapping columnObjectName="TB_basicRules" columnName="type"/>
+    </attribute>
+    <attribute id="status" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="status"/>
+      <keyMapping columnObjectName="TB_basicRules" columnName="status"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="92" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="TB_basicRules" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="217"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
