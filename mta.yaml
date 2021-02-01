@@ -48,6 +48,15 @@ modules:
       properties:
          url: ${default-url}
 
+
+ - name: screenRule
+   type: nodejs
+   path: screenRule
+   provides:
+    - name: screenRule_api
+      properties:
+         url: ${default-url}
+
 resources:
  - name: hdi_gamedb
    properties:
