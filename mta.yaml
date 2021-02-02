@@ -14,17 +14,17 @@ modules:
       - name: xsjs_api
         properties:
           url: '${default-url}'
-  
   - name: db
     type: hdb
     path: db
     requires:
       - name: hdi_db
-  - name: core_xsjs
+  
+  - name: screenRule
     type: nodejs
-    path: core_xsjs
+    path: screenRule
     provides:
-      - name: core_xsjs_api
+      - name: screenRule_api
         properties:
           url: '${default-url}'
     requires:
