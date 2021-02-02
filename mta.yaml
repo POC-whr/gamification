@@ -14,35 +14,15 @@ modules:
       - name: xsjs_api
         properties:
           url: '${default-url}'
-  - name: tools
-    type: nodejs
-    path: tools
-    provides:
-      - name: tools_api
-        properties:
-          url: '${default-url}'
-  - name: persist
-    type: nodejs
-    path: persist
-    provides:
-      - name: persist_api
-        properties:
-          url: '${default-url}'
-  - name: screenRule
-    type: nodejs
-    path: screenRule
-    provides:
-      - name: screenRule_api
-        properties:
-          url: '${default-url}'
-    requires:
-      - name: gamedb
-      - name: hdi_gamedb
   - name: game
     type: html5
     path: game
     requires:
       - name: UAA-service
+        properties:
+          name: core-xsjs-backend
+          url: '~{url}'
+          forwardAuthToken: true
       - name: core_xsjs_api
         group: destination
         properties:

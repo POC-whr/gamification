@@ -1,4 +1,4 @@
 service {
-    "tables:seller"   as "seller" key ("skuSellerId");
+    "tables.seller"  as "seller";
 
 }

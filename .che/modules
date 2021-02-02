@@ -1,8 +1,5 @@
 game
-screenRule
 core_xsjs
-persist
 xsjs
 gamedb
-tools
 db
