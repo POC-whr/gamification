@@ -31,6 +31,15 @@ modules:
       - name: hdi_db
       - name: UAA-service
       - name: db
+
+  - name: persist
+    type: nodejs
+    path: persist
+    provides:
+     - name: persist_api
+       properties:
+          url: ${default-url}
+
 resources:
   - name: hdi_gamedb
     properties:
