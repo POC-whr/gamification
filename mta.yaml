@@ -14,21 +14,7 @@ modules:
       - name: xsjs_api
         properties:
           url: '${default-url}'
-  - name: game
-    type: html5
-    path: game
-    requires:
-      - name: UAA-service
-        properties:
-          name: core-xsjs-backend
-          url: '~{url}'
-          forwardAuthToken: true
-      - name: core_xsjs_api
-        group: destination
-        properties:
-          name: core-xsjs-backend
-          url: '~{url}'
-          forwardAuthToken: true
+  
   - name: db
     type: hdb
     path: db
