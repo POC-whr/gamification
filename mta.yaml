@@ -2,18 +2,8 @@ ID: novogame
 _schema-version: '2.1'
 version: 0.0.1
 modules:
-  - name: gamedb
-    type: hdb
-    path: gamedb
-    requires:
-      - name: hdi_gamedb
-  - name: xsjs
-    type: nodejs
-    path: xsjs
-    provides:
-      - name: xsjs_api
-        properties:
-          url: '${default-url}'
+  
+  
   - name: db
     type: hdb
     path: db
