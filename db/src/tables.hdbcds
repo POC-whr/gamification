@@ -1,0 +1,62 @@
+context tables {
+
+	entity seller {
+		key skuSellerId              : String(50);
+		sellerId                 : String(50);
+		stockKeepingUnitId       : String(50);
+		sellerStockKeepingUnitId : String(50);
+		isActive                 : String(10);
+		updateDate               : String(50);		
+	};
+		entity basicRules {
+		"id"           : String(32);
+		"cluster"      : String(15);
+		"buyer"        : Decimal(15,2);
+		"indicator"    : Decimal(15,2);
+		"initialDate"  : UTCDateTime;
+		"finalDate"    : UTCDateTime;
+		"user"         : String(20);
+		"creationDate" : UTCDateTime;
+		"type"         : String(20);
+		"status"       : String(1);
+	};
+	
+	entity category {
+		id   : String(50);
+		name : String(50);		
+	};
+	
+	entity categoryTree {
+		id   : String(50);
+		name : String(50);
+	};
+	
+	entity product{
+		id                : String(50);
+		productId         : String(50);
+		productCategories : String(500);
+	};
+	entity sku {
+		id        : String(50);
+		productId : String(50);
+		isActive  : String(50);
+	};
+		entity skuContext {
+		id           : String(50);
+		productId    : String(50);
+		skuName      : String(50);
+		isActive     : String(10);
+	};
+	
+	entity skuSeller {
+		skuSellerId              : String(50);
+		sellerId                 : String(50);
+		stockKeepingUnitId       : String(50);
+		sellerStockKeepingUnitId : String(50);
+		isActive                 : String(10);
+		updateDate               : String(50);
+	}
+	
+	
+	
+};

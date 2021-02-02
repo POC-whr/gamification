@@ -1,64 +1,78 @@
 ID: novogame
 _schema-version: '2.1'
 version: 0.0.1
-
 modules:
- - name: gamedb
-   type: hdb
-   path: gamedb
-   requires:
-    - name: hdi_gamedb
-
-
- 
-
-
- - name: xsjs
-   type: nodejs
-   path: xsjs
-   provides:
-    - name: xsjs_api
-      properties:
-         url: ${default-url}
-
-
- 
-
-
- 
-
-
- 
-
-
- - name: tools
-   type: nodejs
-   path: tools
-   provides:
-    - name: tools_api
-      properties:
-         url: ${default-url}
-
-
- - name: persist
-   type: nodejs
-   path: persist
-   provides:
-    - name: persist_api
-      properties:
-         url: ${default-url}
-
-
- - name: screenRule
-   type: nodejs
-   path: screenRule
-   provides:
-    - name: screenRule_api
-      properties:
-         url: ${default-url}
-
+  - name: gamedb
+    type: hdb
+    path: gamedb
+    requires:
+      - name: hdi_gamedb
+  - name: xsjs
+    type: nodejs
+    path: xsjs
+    provides:
+      - name: xsjs_api
+        properties:
+          url: '${default-url}'
+  - name: tools
+    type: nodejs
+    path: tools
+    provides:
+      - name: tools_api
+        properties:
+          url: '${default-url}'
+  - name: persist
+    type: nodejs
+    path: persist
+    provides:
+      - name: persist_api
+        properties:
+          url: '${default-url}'
+  - name: screenRule
+    type: nodejs
+    path: screenRule
+    provides:
+      - name: screenRule_api
+        properties:
+          url: '${default-url}'
+    requires:
+      - name: gamedb
+      - name: hdi_gamedb
+  - name: game
+    type: html5
+    path: game
+    requires:
+      - name: UAA-service
+      - name: core_xsjs_api
+        group: destination
+        properties:
+          name: core-xsjs-backend
+          url: '~{url}'
+          forwardAuthToken: true
+  - name: db
+    type: hdb
+    path: db
+    requires:
+      - name: hdi_db
+  - name: core_xsjs
+    type: nodejs
+    path: core_xsjs
+    provides:
+      - name: core_xsjs_api
+        properties:
+          url: '${default-url}'
+    requires:
+      - name: hdi_db
+      - name: UAA-service
+      - name: db
 resources:
- - name: hdi_gamedb
-   properties:
-      hdi-container-name: ${service-name}
-   type: com.sap.xs.hdi-container
+  - name: hdi_gamedb
+    properties:
+      hdi-container-name: '${service-name}'
+    type: com.sap.xs.hdi-container
+  - name: UAA-service
+    type: com.sap.xs.uaa-space
+  - name: hdi_db
+    properties:
+      hdi-container-name_2: '${service-name}'
+    type: com.sap.xs.hdi-container
