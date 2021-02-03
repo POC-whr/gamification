@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="novogame.gamedb.views.recep::cvqtSkuContext" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
-<descriptions defaultDescription="cvqtSkuContext"/>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="cvqtSkuContext" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="cvqt"/>
 <localVariables/>
 <variableMappings/>
 <dataSources>
-  <DataSource id="novogame.gamedb.tables::skuContext.skuContext">
-    <resourceUri>novogame.gamedb.tables::skuContext.skuContext</resourceUri>
+  <DataSource id="skuContext.skuContext">
+    <resourceUri>skuContext.skuContext</resourceUri>
   </DataSource>
 </dataSources>
 <calculationViews>
   <calculationView xsi:type="Calculation:ProjectionView" id="TB_skuContext">
     <viewAttributes>
+      <viewAttribute id="id"/>
       <viewAttribute id="productId"/>
       <viewAttribute id="skuName"/>
       <viewAttribute id="isActive"/>
-      <viewAttribute id="id"/>
     </viewAttributes>
     <calculatedViewAttributes/>
-    <input node="novogame.gamedb.tables::skuContext.skuContext"/>
+    <input node="skuContext.skuContext"/>
   </calculationView>
 </calculationViews>
 <logicalModel id="TB_skuContext">
   <attributes>
-    <attribute id="productId" order="1" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="id" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="id"/>
+      <keyMapping columnObjectName="TB_skuContext" columnName="id"/>
+    </attribute>
+    <attribute id="productId" order="2" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="productId"/>
       <keyMapping columnObjectName="TB_skuContext" columnName="productId"/>
     </attribute>
-    <attribute id="skuName" order="2" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="skuName" order="3" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="skuName"/>
       <keyMapping columnObjectName="TB_skuContext" columnName="skuName"/>
     </attribute>
-    <attribute id="isActive" order="3" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="isActive" order="4" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="isActive"/>
       <keyMapping columnObjectName="TB_skuContext" columnName="isActive"/>
-    </attribute>
-    <attribute id="id" order="4" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="id"/>
-      <keyMapping columnObjectName="TB_skuContext" columnName="id"/>
     </attribute>
   </attributes>
   <calculatedAttributes/>

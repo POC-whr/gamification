@@ -1,0 +1,17 @@
+service {
+
+//Table "categoryTree":
+"categoryTree.categoryTree" as "categoryTree";
+
+//Table "product":
+"product.product" as "product";
+
+//Table "sku":
+"sku.sku" as "sku";
+
+//Table "skuContext":
+"skuContext.skuContext" as "skuContext";
+
+//Table "skuSeller":
+"skuSeller.skuSeller" as "skuSeller";
+}

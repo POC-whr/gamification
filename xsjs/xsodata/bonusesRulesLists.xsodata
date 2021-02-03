@@ -1,9 +1,0 @@
-service 
-{
-    /*Get skuSellers*/
-    "novogame.gamedb.src.views::cvqSkuSeller" as "cvSkuSeller" key ("skuSellerId");
-
-    /*Get sellers*/
-    //"novogame.gamedb.src.views::cvqSeller" as "cvSeller" key ("idRegraPontuacao");
-
-}

@@ -1,0 +1,7 @@
+context categoryTree {
+	
+	entity categoryTree {
+		key	id   : String(50);
+			name : String(50);
+	};
+};

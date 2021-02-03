@@ -1,9 +1,0 @@
-namespace novogame.gamedb.tables;
-
-context categoryTree {
-
-	entity categoryTree {
-		id   : String(50);
-		name : String(50);
-	}
-};

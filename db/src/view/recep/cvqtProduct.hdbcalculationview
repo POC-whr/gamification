@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="novogame.gamedb.views::cvqProduct" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
-<descriptions defaultDescription="cvqProduct"/>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="cvqtProduct" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="cvqt"/>
 <localVariables/>
 <variableMappings/>
 <dataSources>
-  <DataSource id="novogame.gamedb.views.recep::cvqtProduct">
-    <resourceUri>novogame.gamedb.views.recep::cvqtProduct</resourceUri>
+  <DataSource id="product.product">
+    <resourceUri>product.product</resourceUri>
   </DataSource>
 </dataSources>
 <calculationViews>
-  <calculationView xsi:type="Calculation:ProjectionView" id="CV_product">
+  <calculationView xsi:type="Calculation:ProjectionView" id="TB_product">
     <viewAttributes>
       <viewAttribute id="id"/>
       <viewAttribute id="productId"/>
       <viewAttribute id="productCategories"/>
     </viewAttributes>
     <calculatedViewAttributes/>
-    <input node="novogame.gamedb.views.recep::cvqtProduct"/>
+    <input node="product.product"/>
   </calculationView>
 </calculationViews>
-<logicalModel id="CV_product">
+<logicalModel id="TB_product">
   <attributes>
     <attribute id="id" order="1" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="id"/>
-      <keyMapping columnObjectName="CV_product" columnName="id"/>
+      <keyMapping columnObjectName="TB_product" columnName="id"/>
     </attribute>
     <attribute id="productId" order="2" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="productId"/>
-      <keyMapping columnObjectName="CV_product" columnName="productId"/>
+      <keyMapping columnObjectName="TB_product" columnName="productId"/>
     </attribute>
     <attribute id="productCategories" order="3" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="productCategories"/>
-      <keyMapping columnObjectName="CV_product" columnName="productCategories"/>
+      <keyMapping columnObjectName="TB_product" columnName="productCategories"/>
     </attribute>
   </attributes>
   <calculatedAttributes/>
@@ -47,7 +47,7 @@
       <rectangleSize width="160"/>
     </shape>
   
-    <shape expanded="true" modelObjectName="CV_product" modelObjectNameSpace="CalculationView">
+    <shape expanded="true" modelObjectName="TB_product" modelObjectNameSpace="CalculationView">
       <upperLeftCorner x="92" y="217"/>
       <rectangleSize height="30" width="160"/>
     </shape>

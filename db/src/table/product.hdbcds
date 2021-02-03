@@ -1,0 +1,8 @@
+context product {
+
+	entity product{
+		key	id                : String(50);
+			productId         : String(50);
+			productCategories : String(500);
+	};
+};

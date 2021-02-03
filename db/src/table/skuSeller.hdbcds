@@ -1,0 +1,11 @@
+context skuSeller {
+
+	entity skuSeller {
+		key	skuSellerId              : String(50);
+			sellerId                 : String(50);
+			stockKeepingUnitId       : String(50);
+			sellerStockKeepingUnitId : String(50);
+			isActive                 : String(10);
+			updateDate               : String(50);
+	}
+};

@@ -1,0 +1,8 @@
+context sku {
+
+	entity sku {
+		key	id        : String(50);
+			productId : String(50);
+			isActive  : String(50);
+	};
+};
