@@ -1,17 +1,13 @@
+//oData responsible for listing the match codes from VTEX
+
 service {
 
-//Table "categoryTree":
-"categoryTree.categoryTree" as "categoryTree";
+//Calculation view (recep) "sku":
+"cvqtSku" as "sku"  with("id", "productId", "isActive") key("id") 
+parameters via entity;
 
-//Table "product":
-"product.product" as "product";
+//Calculation view (recep) "saleType":
+"cvqtSaleType" as "saleType" with("id", "saleType", "status") key("id") 
+parameters via entity;
 
-//Table "sku":
-"sku.sku" as "sku";
-
-//Table "skuContext":
-"skuContext.skuContext" as "skuContext";
-
-//Table "skuSeller":
-"skuSeller.skuSeller" as "skuSeller";
 }

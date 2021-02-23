@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="cvqtSaleType" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="cvqtSaleType"/>
+<localVariables>
+  <variable id="in_saleTypeId" parameter="true">
+    <descriptions defaultDescription="input param id"/>
+    <variableProperties datatype="NVARCHAR" length="32" mandatory="true">
+      <valueDomain type="empty"/>
+      <selection multiLine="false" type="SingleValue"/>
+    </variableProperties>
+  </variable>
+</localVariables>
+<variableMappings/>
+<dataSources>
+  <DataSource id="saleType.saleType">
+    <resourceUri>saleType.saleType</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="TB_saleType">
+    <viewAttributes>
+      <viewAttribute id="id"/>
+      <viewAttribute id="saleType"/>
+      <viewAttribute id="status"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="saleType.saleType"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="TB_saleType">
+  <attributes>
+    <attribute id="id" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="id"/>
+      <keyMapping columnObjectName="TB_saleType" columnName="id"/>
+    </attribute>
+    <attribute id="saleType" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="saleType"/>
+      <keyMapping columnObjectName="TB_saleType" columnName="saleType"/>
+    </attribute>
+    <attribute id="status" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="status"/>
+      <keyMapping columnObjectName="TB_saleType" columnName="status"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="TB_saleType" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="201"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
