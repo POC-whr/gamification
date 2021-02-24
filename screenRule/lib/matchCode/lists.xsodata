@@ -10,4 +10,7 @@ parameters via entity;
 "cvqtSaleType" as "saleType" with("id", "saleType", "status") key("id") 
 parameters via entity;
 
+//Calculation view (recep) "productRule":
+"cvqtProductRule" as "productRule";
+
 }
