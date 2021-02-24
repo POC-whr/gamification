@@ -2,7 +2,7 @@ context cluster {
 
 	entity cluster {
 		
-		id   : String(32);
-		name : String(250);
+		key	id   : String(32);
+			name : String(250);
 	}
 };

@@ -4,14 +4,17 @@ service {
 "cvqClusterRule" as "ClusterRule";
 
 //tbRestrictionRule
-"restrictionRule.restrictionRule" as "restrictionRule"
-//    create 
-   update 
-   delete forbidden;
+"restrictionRule.restrictionRule" as "restrictionRule" key("idRule","idRestriction") 
+   create 
+   update;
 
 //tbCluster
-"cluster.cluster" as "cluster"
-//    create 
-//    update 
-//    delete forbidden;
+"cluster.cluster" as "cluster" key("id")
+    create 
+    update;
+    
+  //tbClusterRule
+"clusterRule.clusterRule" as "clusterRule" key("id")
+    create 
+    update;
 }

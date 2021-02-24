@@ -91,7 +91,7 @@
     <calculatedViewAttributes/>
     <input node="cvqtCluster"/>
   </calculationView>
-  <calculationView xsi:type="Calculation:JoinView" id="J_cluster" cardinality="CN_N" joinType="inner">
+  <calculationView xsi:type="Calculation:JoinView" id="J_cluster" joinType="inner">
     <viewAttributes>
       <viewAttribute id="idCluster"/>
       <viewAttribute id="typeBuyer"/>
@@ -140,7 +140,7 @@
     <calculatedViewAttributes/>
     <input node="cvqtRestriction"/>
   </calculationView>
-  <calculationView xsi:type="Calculation:JoinView" id="J_restriction" cardinality="CN_N" joinType="inner">
+  <calculationView xsi:type="Calculation:JoinView" id="J_restriction" joinType="inner">
     <viewAttributes>
       <viewAttribute id="idCluster"/>
       <viewAttribute id="typeBuyer"/>
