@@ -1,0 +1,17 @@
+service {
+
+//cvqClusterRule
+"cvqClusterRule" as "ClusterRule";
+
+//tbRestrictionRule
+"restrictionRule.restrictionRule" as "restrictionRule"
+//    create 
+   update 
+   delete forbidden;
+
+//tbCluster
+"cluster.cluster" as "cluster"
+//    create 
+//    update 
+//    delete forbidden;
+}

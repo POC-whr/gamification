@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="cvqClusterRule" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="cvqClusterRule"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="cvqtClusterRule">
+    <resourceUri>cvqtClusterRule</resourceUri>
+  </DataSource>
+  <DataSource id="cvqtRestrictionRule">
+    <resourceUri>cvqtRestrictionRule</resourceUri>
+  </DataSource>
+  <DataSource id="cvqtCluster">
+    <resourceUri>cvqtCluster</resourceUri>
+  </DataSource>
+  <DataSource id="cvqtRestriction">
+    <resourceUri>cvqtRestriction</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="clusterRule">
+    <viewAttributes>
+      <viewAttribute id="id"/>
+      <viewAttribute id="idCluster"/>
+      <viewAttribute id="typeBuyer"/>
+      <viewAttribute id="buyerValue"/>
+      <viewAttribute id="recurrence"/>
+      <viewAttribute id="target"/>
+      <viewAttribute id="typeIndicated"/>
+      <viewAttribute id="indicatedValue"/>
+      <viewAttribute id="status"/>
+      <viewAttribute id="creationDate"/>
+      <viewAttribute id="creationUser"/>
+      <viewAttribute id="days"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="cvqtClusterRule"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="restrictionRule">
+    <viewAttributes>
+      <viewAttribute id="idRule"/>
+      <viewAttribute id="idRestriction"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="cvqtRestrictionRule"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="J_rules" cardinality="C1_N" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="idCluster"/>
+      <viewAttribute id="typeBuyer"/>
+      <viewAttribute id="buyerValue"/>
+      <viewAttribute id="recurrence"/>
+      <viewAttribute id="target"/>
+      <viewAttribute id="typeIndicated"/>
+      <viewAttribute id="indicatedValue"/>
+      <viewAttribute id="status"/>
+      <viewAttribute id="creationDate"/>
+      <viewAttribute id="creationUser"/>
+      <viewAttribute id="days"/>
+      <viewAttribute id="idRule"/>
+      <viewAttribute id="idRestriction"/>
+      <viewAttribute hidden="true" id="JOIN$id$idRule"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="clusterRule">
+      <mapping xsi:type="Calculation:AttributeMapping" target="idCluster" source="idCluster"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="typeBuyer" source="typeBuyer"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="buyerValue" source="buyerValue"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="recurrence" source="recurrence"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="target" source="target"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="typeIndicated" source="typeIndicated"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="indicatedValue" source="indicatedValue"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="status" source="status"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="creationDate" source="creationDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="creationUser" source="creationUser"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="days" source="days"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$id$idRule" source="id"/>
+    </input>
+    <input node="restrictionRule">
+      <mapping xsi:type="Calculation:AttributeMapping" target="idRule" source="idRule"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="idRestriction" source="idRestriction"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$id$idRule" source="idRule"/>
+    </input>
+    <joinAttribute name="JOIN$id$idRule"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="cluster">
+    <viewAttributes>
+      <viewAttribute id="id"/>
+      <viewAttribute id="name"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="cvqtCluster"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="J_cluster" cardinality="CN_N" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="idCluster"/>
+      <viewAttribute id="typeBuyer"/>
+      <viewAttribute id="buyerValue"/>
+      <viewAttribute id="recurrence"/>
+      <viewAttribute id="target"/>
+      <viewAttribute id="typeIndicated"/>
+      <viewAttribute id="indicatedValue"/>
+      <viewAttribute id="status"/>
+      <viewAttribute id="creationDate"/>
+      <viewAttribute id="creationUser"/>
+      <viewAttribute id="days"/>
+      <viewAttribute id="idRule"/>
+      <viewAttribute id="idRestriction"/>
+      <viewAttribute id="name"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="J_rules">
+      <mapping xsi:type="Calculation:AttributeMapping" target="idCluster" source="idCluster"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="typeBuyer" source="typeBuyer"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="buyerValue" source="buyerValue"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="recurrence" source="recurrence"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="target" source="target"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="typeIndicated" source="typeIndicated"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="indicatedValue" source="indicatedValue"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="status" source="status"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="creationDate" source="creationDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="creationUser" source="creationUser"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="days" source="days"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="idRule" source="idRule"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="idRestriction" source="idRestriction"/>
+    </input>
+    <input node="cluster">
+      <mapping xsi:type="Calculation:AttributeMapping" target="name" source="name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="idCluster" source="id"/>
+    </input>
+    <joinAttribute name="idCluster"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="restriction">
+    <viewAttributes>
+      <viewAttribute id="id"/>
+      <viewAttribute id="description"/>
+      <viewAttribute id="ruleType"/>
+      <viewAttribute id="status"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="cvqtRestriction"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="J_restriction" cardinality="CN_N" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="idCluster"/>
+      <viewAttribute id="typeBuyer"/>
+      <viewAttribute id="buyerValue"/>
+      <viewAttribute id="recurrence"/>
+      <viewAttribute id="target"/>
+      <viewAttribute id="typeIndicated"/>
+      <viewAttribute id="indicatedValue"/>
+      <viewAttribute id="status"/>
+      <viewAttribute id="creationDate"/>
+      <viewAttribute id="creationUser"/>
+      <viewAttribute id="days"/>
+      <viewAttribute id="idRule"/>
+      <viewAttribute id="idRestriction"/>
+      <viewAttribute id="name"/>
+      <viewAttribute id="description"/>
+      <viewAttribute id="ruleType"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="J_cluster">
+      <mapping xsi:type="Calculation:AttributeMapping" target="idCluster" source="idCluster"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="typeBuyer" source="typeBuyer"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="buyerValue" source="buyerValue"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="recurrence" source="recurrence"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="target" source="target"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="typeIndicated" source="typeIndicated"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="indicatedValue" source="indicatedValue"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="status" source="status"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="creationDate" source="creationDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="creationUser" source="creationUser"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="days" source="days"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="idRule" source="idRule"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="idRestriction" source="idRestriction"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="name" source="name"/>
+    </input>
+    <input node="restriction">
+      <mapping xsi:type="Calculation:AttributeMapping" target="description" source="description"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ruleType" source="ruleType"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="idRestriction" source="id"/>
+    </input>
+    <joinAttribute name="idRestriction"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="J_restriction">
+  <attributes>
+    <attribute id="idCluster" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="idCluster"/>
+      <keyMapping columnObjectName="J_restriction" columnName="idCluster"/>
+    </attribute>
+    <attribute id="typeBuyer" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="typeBuyer"/>
+      <keyMapping columnObjectName="J_restriction" columnName="typeBuyer"/>
+    </attribute>
+    <attribute id="buyerValue" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="buyerValue"/>
+      <keyMapping columnObjectName="J_restriction" columnName="buyerValue"/>
+    </attribute>
+    <attribute id="recurrence" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="recurrence"/>
+      <keyMapping columnObjectName="J_restriction" columnName="recurrence"/>
+    </attribute>
+    <attribute id="target" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="target"/>
+      <keyMapping columnObjectName="J_restriction" columnName="target"/>
+    </attribute>
+    <attribute id="typeIndicated" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="typeIndicated"/>
+      <keyMapping columnObjectName="J_restriction" columnName="typeIndicated"/>
+    </attribute>
+    <attribute id="indicatedValue" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="indicatedValue"/>
+      <keyMapping columnObjectName="J_restriction" columnName="indicatedValue"/>
+    </attribute>
+    <attribute id="status" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="status"/>
+      <keyMapping columnObjectName="J_restriction" columnName="status"/>
+    </attribute>
+    <attribute id="creationDate" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="creationDate"/>
+      <keyMapping columnObjectName="J_restriction" columnName="creationDate"/>
+    </attribute>
+    <attribute id="creationUser" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="creationUser"/>
+      <keyMapping columnObjectName="J_restriction" columnName="creationUser"/>
+    </attribute>
+    <attribute id="days" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="days"/>
+      <keyMapping columnObjectName="J_restriction" columnName="days"/>
+    </attribute>
+    <attribute id="idRule" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="idRule"/>
+      <keyMapping columnObjectName="J_restriction" columnName="idRule"/>
+    </attribute>
+    <attribute id="idRestriction" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="idRestriction"/>
+      <keyMapping columnObjectName="J_restriction" columnName="idRestriction"/>
+    </attribute>
+    <attribute id="name" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="name"/>
+      <keyMapping columnObjectName="J_restriction" columnName="name"/>
+    </attribute>
+    <attribute id="description" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="description"/>
+      <keyMapping columnObjectName="J_restriction" columnName="description"/>
+    </attribute>
+    <attribute id="ruleType" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ruleType"/>
+      <keyMapping columnObjectName="J_restriction" columnName="ruleType"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="422.15218199852" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="clusterRule" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="14" y="651.9999964237213"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="restrictionRule" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="302.00000000000006" y="656.9999964237213"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="J_rules" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="154.66666666666669" y="488.9999976158142"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="clusterRule" modelObjectNameSpace="J_rules" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="157.349609375"/>
+    </shape>
+    <shape modelObjectName="restrictionRule" modelObjectNameSpace="J_rules" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="146.521484375"/>
+    </shape>
+    <shape expanded="true" modelObjectName="cluster" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="384.11215526044043" y="496.9999976158142"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="J_cluster" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="272.33333333333337" y="358.9999988079071"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="J_rules" modelObjectNameSpace="J_cluster" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="cluster" modelObjectNameSpace="J_cluster" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape expanded="true" modelObjectName="restriction" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="489.48394766311617" y="356.9999988079071"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="J_restriction" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="422.15218199852" y="217"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="J_cluster" modelObjectNameSpace="J_restriction" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="157.349609375"/>
+    </shape>
+    <shape modelObjectName="restriction" modelObjectNameSpace="J_restriction" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="139.1953125"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
