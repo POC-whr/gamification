@@ -1,3 +1,41 @@
 ID: gamification
 _schema-version: '2.1'
 version: 0.0.1
+modules:
+  - name: db
+    type: hdb
+    path: db
+    requires:
+      - name: hdi_db
+  - name: persist
+    type: nodejs
+    path: persist
+    provides:
+      - name: persist_api
+        properties:
+          url: '${default-url}'
+  - name: screen
+    type: nodejs
+    path: screen
+    provides:
+      - name: screen_api
+        properties:
+          url: '${default-url}'
+    requires:
+      - name: db
+      - name: UAA-service
+      - name: hdi_db
+resources:
+  - name: hdi_gamedb
+    properties:
+      hdi-container-name: '${service-name}'
+    type: com.sap.xs.hdi-container
+  - name: UAA-service
+    type: com.sap.xs.hdi-container
+  - name: hdi_db
+    properties:
+      hdi-container-name_2: '${service-name}'
+    type: com.sap.xs.hdi-container
+
+
+

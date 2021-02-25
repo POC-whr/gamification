@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="cvqtRestrictionRule" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="cvqtRestrictionRule"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="restrictionRule.restrictionRule">
+    <resourceUri>restrictionRule.restrictionRule</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="TB_restrictionRule">
+    <viewAttributes>
+      <viewAttribute id="idRule"/>
+      <viewAttribute id="idRestriction"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="restrictionRule.restrictionRule"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="TB_restrictionRule">
+  <attributes>
+    <attribute id="idRule" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="idRule"/>
+      <keyMapping columnObjectName="TB_restrictionRule" columnName="idRule"/>
+    </attribute>
+    <attribute id="idRestriction" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="idRestriction"/>
+      <keyMapping columnObjectName="TB_restrictionRule" columnName="idRestriction"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="92" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="TB_restrictionRule" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="217"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

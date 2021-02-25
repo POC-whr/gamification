@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="cvqtSku" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="cvqtSku"/>
+<localVariables>
+  <variable id="in_skuId" parameter="true">
+    <descriptions defaultDescription="input param skuID"/>
+    <variableProperties datatype="NVARCHAR" length="32" mandatory="true">
+      <valueDomain type="empty"/>
+      <selection multiLine="false" type="SingleValue"/>
+    </variableProperties>
+  </variable>
+</localVariables>
+<variableMappings/>
+<dataSources>
+  <DataSource id="sku.sku">
+    <resourceUri>sku.sku</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="TB_sku">
+    <viewAttributes>
+      <viewAttribute id="id"/>
+      <viewAttribute id="productId"/>
+      <viewAttribute id="isActive"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="sku.sku"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="TB_sku">
+  <attributes>
+    <attribute id="id" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="id"/>
+      <keyMapping columnObjectName="TB_sku" columnName="id"/>
+    </attribute>
+    <attribute id="productId" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="productId"/>
+      <keyMapping columnObjectName="TB_sku" columnName="productId"/>
+    </attribute>
+    <attribute id="isActive" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="isActive"/>
+      <keyMapping columnObjectName="TB_sku" columnName="isActive"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="TB_sku" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="212"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

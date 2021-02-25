@@ -1,0 +1,14 @@
+context productRules {
+
+	entity productRules {
+
+		name           : String(255);
+		version        : String(10);
+		type           : String(50);
+		sellers        : String(255);
+		validityStart  : UTCTimestamp;
+		validityEnd    : UTCTimestamp;
+		situation      : String(50);
+		status         : String(1);
+	}
+};

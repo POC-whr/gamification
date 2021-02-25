@@ -1,0 +1,8 @@
+context cluster {
+
+	entity cluster {
+		
+		key	id   : String(32);
+			name : String(250);
+	}
+};

@@ -1,0 +1,15 @@
+context types {
+    
+    type CreatedOn				: UTCTimestamp;
+	type UpdatedOn				: UTCTimestamp;
+	type CreatedBy				: String(50);
+	type UpdatedBy				: String(50);
+	type Audit{
+		createdOn				: types.CreatedOn;
+		updatedOn				: types.UpdatedOn;
+		createdBy				: types.CreatedBy;
+		updatedBy				: types.UpdatedBy;
+	
+	};
+
+};

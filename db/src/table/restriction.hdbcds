@@ -1,0 +1,10 @@
+context restriction {
+
+	entity restriction {
+		
+		id          : String(32);
+		description : String(250);
+		ruleType    : String(1);
+		status      : String(1);
+	}
+};
