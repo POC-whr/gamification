@@ -16,7 +16,7 @@ var options = {
 try {
 	options = Object.assign(options, xsenv.getServices({ hana: {tag: "hana"} }));
 } catch (err) {
-	console.log("[WARN]", err.message);
+	console.log("[WARN]", err.message);spo
 }
 
 // configure UAA
