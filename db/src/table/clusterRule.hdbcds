@@ -1,3 +1,4 @@
+using types;
 context clusterRule {
 
 	entity clusterRule {
@@ -13,5 +14,6 @@ context clusterRule {
 			creationDate   : UTCTimestamp;
 			creationUser   : String(50);
 			days           : Integer;
+			audit		   : types.Audit;
 	}
 };

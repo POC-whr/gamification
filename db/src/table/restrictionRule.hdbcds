@@ -1,8 +1,10 @@
+using types;
 context restrictionRule {
 
 	entity restrictionRule {
 		
 		key	idRule        : String(32);
 		key	idRestriction : String(32);
+		audit			  : types.Audit;
 	}
 };

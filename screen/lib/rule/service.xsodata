@@ -1,0 +1,14 @@
+service {
+
+//cvqClusterRule
+"cvqClusterRule" as "ClusterRule" key("idRule");
+
+//tbRestrictionRule
+"restrictionRule.restrictionRule" as "restrictionRule" ;
+
+//tbCluster
+"cluster.cluster" as "cluster";
+    
+  //tbClusterRule
+"clusterRule.clusterRule" as "clusterRule";
+}
