@@ -1,5 +1,5 @@
-<<<<<<< HEAD
-ID: novogame
+
+ID: gamification
 _schema-version: '2.1'
 version: 0.0.1
 modules:
@@ -38,8 +38,6 @@ resources:
     properties:
       hdi-container-name_2: '${service-name}'
     type: com.sap.xs.hdi-container
-=======
-ID: gamification
-_schema-version: '2.1'
-version: 0.0.1
->>>>>>> main
+
+
+
