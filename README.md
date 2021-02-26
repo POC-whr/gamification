@@ -10,5 +10,6 @@ teste 6) gerenciando conflitos
 
 teste 4) Alteração branch local - developer_matheus
 teste 5) commit na bracnh developer_remote
+teste 6) Commit joselma
 
 
