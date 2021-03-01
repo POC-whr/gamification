@@ -1,0 +1,7 @@
+context skuRule {
+
+	entity skuRule {
+	key	idSkuRule : String(32);
+		sku       : String(150);
+	}
+};
