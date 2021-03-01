@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="cvqtProductRule" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="recep cvqtProductRule"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="productRule.productRule">
+    <resourceUri>productRule.productRule</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="TB_productRule">
+    <viewAttributes>
+      <viewAttribute id="id"/>
+      <viewAttribute id="idSaleType"/>
+      <viewAttribute id="name"/>
+      <viewAttribute id="version"/>
+      <viewAttribute id="validityIni"/>
+      <viewAttribute id="validityEnd"/>
+      <viewAttribute id="validtyDays"/>
+      <viewAttribute id="status"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="productRule.productRule"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="TB_productRule">
+  <attributes>
+    <attribute id="id" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="id"/>
+      <keyMapping columnObjectName="TB_productRule" columnName="id"/>
+    </attribute>
+    <attribute id="idSaleType" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="idSaleType"/>
+      <keyMapping columnObjectName="TB_productRule" columnName="idSaleType"/>
+    </attribute>
+    <attribute id="name" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="name"/>
+      <keyMapping columnObjectName="TB_productRule" columnName="name"/>
+    </attribute>
+    <attribute id="version" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="version"/>
+      <keyMapping columnObjectName="TB_productRule" columnName="version"/>
+    </attribute>
+    <attribute id="validityIni" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="validityIni"/>
+      <keyMapping columnObjectName="TB_productRule" columnName="validityIni"/>
+    </attribute>
+    <attribute id="validityEnd" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="validityEnd"/>
+      <keyMapping columnObjectName="TB_productRule" columnName="validityEnd"/>
+    </attribute>
+    <attribute id="validtyDays" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="validtyDays"/>
+      <keyMapping columnObjectName="TB_productRule" columnName="validtyDays"/>
+    </attribute>
+    <attribute id="status" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="status"/>
+      <keyMapping columnObjectName="TB_productRule" columnName="status"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="92" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="TB_productRule" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="217"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

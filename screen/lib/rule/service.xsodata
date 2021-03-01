@@ -1,14 +1,36 @@
 service {
 
+/****** CLUSTER ******
+The data sets below are responsible for retrieving data from clusters' rules */
+
 //cvqClusterRule
 "cvqClusterRule" as "ClusterRule" key("idRule");
 
 //tbRestrictionRule
-"restrictionRule.restrictionRule" as "restrictionRule" ;
+"restrictionRule.restrictionRule" as "restrictionRule";
 
 //tbCluster
 "cluster.cluster" as "cluster";
     
-  //tbClusterRule
+//tbClusterRule
 "clusterRule.clusterRule" as "clusterRule";
+
+/****** PRODUCT ******
+The data sets below are responsible for retrieving data from products' rules */
+
+//Lista + seller (productRule + sellersku)
+
+//cvqProductRule
+"cvqProductRule" as "ProductRule" key("id") navigates ("rulesSellers" as "rulesAssocSellers");
+//cvqSellerSku
+"cvqSellerSku" as "SellerSku" key("sellerId");
+	association "rulesSellers"  with referential constraint principal "ProductRule"("id") multiplicity "1" dependent "SellerSku"("sellerId") multiplicity "*";
+
+//cvqtSkuRule
+"cvqtSkuRule" as "SkuRule" key("idSkuRule");
+
+//cvqListProductRule
+"cvqListProductRule" as "ListProductRule" key("id");
+
+
 }

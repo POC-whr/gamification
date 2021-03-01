@@ -3,7 +3,6 @@ context saleType {
 	entity saleType {
 		id       : String(32);
 		saleType : String(100);
-		status   : String(1);
 	}
 };
 

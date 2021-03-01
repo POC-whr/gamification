@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="cvqtSaleType" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
-<descriptions defaultDescription="cvqtSaleType"/>
-<localVariables>
-  <variable id="in_saleTypeId" parameter="true">
-    <descriptions defaultDescription="input param id"/>
-    <variableProperties datatype="NVARCHAR" length="32" mandatory="true">
-      <valueDomain type="empty"/>
-      <selection multiLine="false" type="SingleValue"/>
-    </variableProperties>
-  </variable>
-</localVariables>
+<descriptions defaultDescription="recep cvqtSaleType"/>
+<localVariables/>
 <variableMappings/>
 <dataSources>
   <DataSource id="saleType.saleType">
@@ -21,7 +13,6 @@
     <viewAttributes>
       <viewAttribute id="id"/>
       <viewAttribute id="saleType"/>
-      <viewAttribute id="status"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="saleType.saleType"/>
@@ -37,10 +28,6 @@
       <descriptions defaultDescription="saleType"/>
       <keyMapping columnObjectName="TB_saleType" columnName="saleType"/>
     </attribute>
-    <attribute id="status" order="3" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="status"/>
-      <keyMapping columnObjectName="TB_saleType" columnName="status"/>
-    </attribute>
   </attributes>
   <calculatedAttributes/>
   <baseMeasures/>
@@ -50,11 +37,13 @@
 <layout>
   <shapes>
     <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
-      <upperLeftCorner x="40" y="85"/>
+      <upperLeftCorner x="92" y="112"/>
+    
+      <rectangleSize width="160"/>
     </shape>
   
     <shape expanded="true" modelObjectName="TB_saleType" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="100" y="201"/>
+      <upperLeftCorner x="92" y="217"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   </shapes>
