@@ -259,37 +259,37 @@
 <layout>
   <shapes>
     <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
-      <upperLeftCorner x="422.15218199852" y="112"/>
+      <upperLeftCorner x="422" y="112"/>
     
       <rectangleSize width="160"/>
     </shape>
   
     <shape expanded="true" modelObjectName="clusterRule" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="14" y="651.9999964237213"/>
+      <upperLeftCorner x="14" y="651"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="restrictionRule" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="302.00000000000006" y="656.9999964237213"/>
+      <upperLeftCorner x="304" y="651"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="J_rules" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="154.66666666666669" y="488.9999976158142"/>
+      <upperLeftCorner x="154" y="488"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="clusterRule" modelObjectNameSpace="J_rules" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="157.349609375"/>
+      <rectangleSize width="157"/>
     </shape>
     <shape modelObjectName="restrictionRule" modelObjectNameSpace="J_rules" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="320" y="30"/>
-      <rectangleSize width="146.521484375"/>
+      <rectangleSize width="146"/>
     </shape>
     <shape expanded="true" modelObjectName="cluster" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="384.11215526044043" y="496.9999976158142"/>
+      <upperLeftCorner x="384" y="496"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="J_cluster" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="272.33333333333337" y="358.9999988079071"/>
+      <upperLeftCorner x="272" y="358"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="J_rules" modelObjectNameSpace="J_cluster" modelObjectType="JoinNodeInput">
@@ -301,20 +301,20 @@
       <rectangleSize width="250"/>
     </shape>
     <shape expanded="true" modelObjectName="restriction" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="489.48394766311617" y="356.9999988079071"/>
+      <upperLeftCorner x="489" y="356"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="J_restriction" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="422.15218199852" y="217"/>
+      <upperLeftCorner x="422" y="217"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape modelObjectName="J_cluster" modelObjectNameSpace="J_restriction" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="157.349609375"/>
+      <rectangleSize width="157"/>
     </shape>
     <shape modelObjectName="restriction" modelObjectNameSpace="J_restriction" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="320" y="30"/>
-      <rectangleSize width="139.1953125"/>
+      <rectangleSize width="139"/>
     </shape>
   </shapes>
 </layout>

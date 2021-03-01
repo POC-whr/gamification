@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="cvqtSeller" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="cvqtSeller"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="seller.seller">
+    <resourceUri>seller.seller</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="TB_Seller">
+    <viewAttributes>
+      <viewAttribute id="sellerId"/>
+      <viewAttribute id="nome"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="seller.seller"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="TB_Seller">
+  <attributes>
+    <attribute id="sellerId" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="sellerId"/>
+      <keyMapping columnObjectName="TB_Seller" columnName="sellerId"/>
+    </attribute>
+    <attribute id="nome" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="nome"/>
+      <keyMapping columnObjectName="TB_Seller" columnName="nome"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="TB_Seller" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="213"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

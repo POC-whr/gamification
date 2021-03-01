@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="cvqSellerSku" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="cvqSellerSku"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="cvqtSeller">
+    <resourceUri>cvqtSeller</resourceUri>
+  </DataSource>
+  <DataSource id="cvqtSkuSeller">
+    <resourceUri>cvqtSkuSeller</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Seller">
+    <viewAttributes>
+      <viewAttribute id="sellerId"/>
+      <viewAttribute id="nome"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="cvqtSeller"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Sku">
+    <viewAttributes>
+      <viewAttribute id="skuSellerId"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="cvqtSkuSeller"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="SellerSku" cardinality="C1_N" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="sellerId"/>
+      <viewAttribute id="nome"/>
+      <viewAttribute id="skuSellerId"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Seller">
+      <mapping xsi:type="Calculation:AttributeMapping" target="sellerId" source="sellerId"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="nome" source="nome"/>
+    </input>
+    <input node="Sku">
+      <mapping xsi:type="Calculation:AttributeMapping" target="skuSellerId" source="skuSellerId"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="sellerId" source="skuSellerId"/>
+    </input>
+    <joinAttribute name="sellerId"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="SellerSku">
+  <attributes>
+    <attribute id="sellerId" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="sellerId"/>
+      <keyMapping columnObjectName="SellerSku" columnName="sellerId"/>
+    </attribute>
+    <attribute id="nome" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="nome"/>
+      <keyMapping columnObjectName="SellerSku" columnName="nome"/>
+    </attribute>
+    <attribute id="skuSellerId" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="skuSellerId"/>
+      <keyMapping columnObjectName="SellerSku" columnName="skuSellerId"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="221.11302679000914" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Seller" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92.00000000000001" y="376.9999988079071"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Sku" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="343.00000000000006" y="376.9999988079071"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="SellerSku" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="221.11302679000914" y="217"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Seller" modelObjectNameSpace="SellerSku" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="121.4599609375"/>
+    </shape>
+    <shape modelObjectName="Sku" modelObjectNameSpace="SellerSku" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="140.41455078125"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
