@@ -1,0 +1,16 @@
+PROCEDURE "prcproduct"
+(
+	in paramin "product.product"
+)
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+   AS
+   
+BEGIN
+ 
+	upsert "product.product"
+	select * from :paramin;
+ 
+ 
+END

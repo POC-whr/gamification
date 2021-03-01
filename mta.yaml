@@ -14,6 +14,9 @@ modules:
       - name: persist_api
         properties:
           url: '${default-url}'
+    requires:
+      - name: db
+      - name: hdi_db
   - name: screen
     type: nodejs
     path: screen
@@ -36,6 +39,3 @@ resources:
     properties:
       hdi-container-name_2: '${service-name}'
     type: com.sap.xs.hdi-container
-
-
-
