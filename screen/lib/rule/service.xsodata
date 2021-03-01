@@ -1,13 +1,15 @@
 service {
 
-/****** CLUSTER ******
+/*---------- GLOBAL ENTITY SET ----------*/ 
+//GET Restrictions is used for both endpoints
+"cvqtRestrictionRule" as "restrictionRule" key("idRule");
+
+
+/*----------  CLUSTER   ----------
 The data sets below are responsible for retrieving data from clusters' rules */
 
 //cvqClusterRule
-"cvqClusterRule" as "ClusterRule" key("idRule");
-
-//tbRestrictionRule
-"restrictionRule.restrictionRule" as "restrictionRule";
+"cvqClusterRule" as "clusterRule" key("idRule");
 
 //tbCluster
 "cluster.cluster" as "cluster";
@@ -15,22 +17,23 @@ The data sets below are responsible for retrieving data from clusters' rules */
 //tbClusterRule
 "clusterRule.clusterRule" as "clusterRule";
 
-/****** PRODUCT ******
+
+/*----------   PRODUCT   ----------
 The data sets below are responsible for retrieving data from products' rules */
 
-//Lista + seller (productRule + sellersku)
+//productRules registration
+"cvqProductRule" as "productRule" key("id");
+	//create using
+	//update using
+	
+//GET SKUs 
+"cvqtSkuRule" as "skuRule" key("idSkuRule");
 
-//cvqProductRule
-"cvqProductRule" as "ProductRule" key("id") navigates ("rulesSellers" as "rulesAssocSellers");
-//cvqSellerSku
-"cvqSellerSku" as "SellerSku" key("sellerId");
-	association "rulesSellers"  with referential constraint principal "ProductRule"("id") multiplicity "1" dependent "SellerSku"("sellerId") multiplicity "*";
+//GET Product Rules: it lists product rules and sellers as mutiple entries - without association 
+"cvqListProductRule" as "listProductRule" key("id");
 
-//cvqtSkuRule
-"cvqtSkuRule" as "SkuRule" key("idSkuRule");
-
-//cvqListProductRule
-"cvqListProductRule" as "ListProductRule" key("id");
-
-
+//GET association between a product rule and its various possible sellers in a single row
+	"cvqProductRule" as "productRule" key("id") navigates ("rulesSellers" as "rulesAssocSellers");
+	"cvqSellerSku"   as "sellerSku"   key("sellerId");
+		association "rulesSellers"  with referential constraint principal "productRule"("id") multiplicity "1" dependent "sellerSku"("sellerId") multiplicity "*";
 }
