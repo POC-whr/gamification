@@ -26,13 +26,11 @@ The data sets below are responsible for retrieving data from products' rules */
 "cvqSellerSku" as "SellerSku" key("sellerId");
 	association "rulesSellers"  with referential constraint principal "ProductRule"("id") multiplicity "1" dependent "SellerSku"("sellerId") multiplicity "*";
 
-
 //cvqtSkuRule
 "cvqtSkuRule" as "SkuRule" key("idSkuRule");
 
 //cvqListProductRule
 "cvqListProductRule" as "ListProductRule" key("id");
-
 
 
 }
