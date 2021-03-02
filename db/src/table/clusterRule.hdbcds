@@ -2,18 +2,16 @@ using types;
 context clusterRule {
 
 	entity clusterRule {
-		key	id             : String(32);
-			idCluster      : String(32);
-			typeBuyer      : String(1);
-			buyerValue     : Decimal(17,4);
-			recurrence     : Integer;
-			target         : Decimal(17,4);
-			typeIndicated  : String(1);
-			indicatedValue : Decimal(17,4);
-			status         : String(1);
-			creationDate   : UTCTimestamp;
-			creationUser   : String(50);
-			days           : Integer;
+		key	id             : types.id;
+			idCluster      : types.idCluster;
+			typeBuyer      : types.typeBuyer;
+			buyerValue     : types.buyerValue;
+			recurrence     : types.recurrence;
+			target         : types.target;
+			typeIndicated  : types.typeIndicated;
+			indicatedValue : types.indicatedValue;
+			status         : types.status;
+			days           : types.days;
 			audit		   : types.Audit;
 	}
 };

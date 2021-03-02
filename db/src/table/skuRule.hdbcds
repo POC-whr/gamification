@@ -1,7 +1,8 @@
+using types;
 context skuRule {
 
 	entity skuRule {
-	key	idSkuRule : String(32);
-		sku       : String(150);
+	key	idSkuRule : types.idSkuRule;
+		sku       : types.sku;
 	}
 };

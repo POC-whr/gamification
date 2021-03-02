@@ -1,15 +1,52 @@
 context types {
     
-    type CreatedOn				: UTCTimestamp;
-	type UpdatedOn				: UTCTimestamp;
-	type CreatedBy				: String(50);
-	type UpdatedBy				: String(50);
+    type CreatedOn				  : UTCTimestamp;
+	type UpdatedOn		 		  : UTCTimestamp;
+	type CreatedBy		  		  : String(50);
+	type UpdatedBy			 	  : String(50);
+	type idRule                   : String(32);
+	type idCluster                : String(32);
+    type valueType                : String(1);
+	type value                    : Decimal(17,4);
+	type id                       : String(32);
+	type name                     : String(250);
+	type typeBuyer                : String(1);
+	type buyerValue               : Decimal(17,4);
+	type recurrence               : Integer;
+	type target                   : Decimal(17,4);
+	type typeIndicated            : String(1);
+	type indicatedValue           : Decimal(17,4);
+	type status                   : String(1);
+	type days                     : Integer;
+	type productId                : String(50);
+	type productCategories        : String(500);
+	type idSaleType               : String(32);
+	type version                  : Decimal(14,4);
+	type validityIni              : UTCTimestamp;
+	type validityEnd              : UTCTimestamp;
+	type validtyDays              : Integer;
+	type description              : String(250);
+	type ruleType                 : String(1);
+	type idRestriction            : String(32);
+	type saleType                 : String(100);	
+	type sellerId                 : String(32);
+	type nome                     : String(50);
+	type skuName                  : String(50);
+	type isActive                 : String(10);
+	type idSkuRule                : String(32);
+	type sku                      : String(150);
+	type skuSellerId              : String(50);
+	type stockKeepingUnitId       : String(50);
+	type sellerStockKeepingUnitId : String(50);
+	type updateDate               : String(50);
+	 
+	
+	
 	type Audit{
 		createdOn				: types.CreatedOn;
 		updatedOn				: types.UpdatedOn;
 		createdBy				: types.CreatedBy;
 		updatedBy				: types.UpdatedBy;
-	
 	};
 
 };

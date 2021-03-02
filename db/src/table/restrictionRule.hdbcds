@@ -3,8 +3,8 @@ context restrictionRule {
 
 	entity restrictionRule {
 		
-		key	idRule        : String(32);
-		key	idRestriction : String(32);
+		key	idRule        : types.idRule;
+		key	idRestriction : types.idRestriction;
 		audit			  : types.Audit;
 	}
 };

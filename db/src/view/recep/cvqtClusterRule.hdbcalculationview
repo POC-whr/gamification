@@ -20,12 +20,19 @@
       <viewAttribute id="typeIndicated"/>
       <viewAttribute id="indicatedValue"/>
       <viewAttribute id="status"/>
-      <viewAttribute id="creationDate"/>
-      <viewAttribute id="creationUser"/>
       <viewAttribute id="days"/>
+      <viewAttribute id="audit_createdOn"/>
+      <viewAttribute id="audit_updatedOn"/>
+      <viewAttribute id="audit_createdBy"/>
+      <viewAttribute id="audit_updatedBy"/>
     </viewAttributes>
     <calculatedViewAttributes/>
-    <input node="clusterRule.clusterRule"/>
+    <input node="clusterRule.clusterRule">
+      <mapping xsi:type="Calculation:AttributeMapping" target="audit_createdOn" source="audit.createdOn"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="audit_updatedOn" source="audit.updatedOn"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="audit_createdBy" source="audit.createdBy"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="audit_updatedBy" source="audit.updatedBy"/>
+    </input>
   </calculationView>
 </calculationViews>
 <logicalModel id="TB_clusterRule">
@@ -66,17 +73,25 @@
       <descriptions defaultDescription="status"/>
       <keyMapping columnObjectName="TB_clusterRule" columnName="status"/>
     </attribute>
-    <attribute id="creationDate" order="10" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="creationDate"/>
-      <keyMapping columnObjectName="TB_clusterRule" columnName="creationDate"/>
-    </attribute>
-    <attribute id="creationUser" order="11" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="creationUser"/>
-      <keyMapping columnObjectName="TB_clusterRule" columnName="creationUser"/>
-    </attribute>
-    <attribute id="days" order="12" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="days" order="10" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="days"/>
       <keyMapping columnObjectName="TB_clusterRule" columnName="days"/>
+    </attribute>
+    <attribute id="audit_createdOn" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="audit_createdOn"/>
+      <keyMapping columnObjectName="TB_clusterRule" columnName="audit_createdOn"/>
+    </attribute>
+    <attribute id="audit_updatedOn" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="audit_updatedOn"/>
+      <keyMapping columnObjectName="TB_clusterRule" columnName="audit_updatedOn"/>
+    </attribute>
+    <attribute id="audit_createdBy" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="audit_createdBy"/>
+      <keyMapping columnObjectName="TB_clusterRule" columnName="audit_createdBy"/>
+    </attribute>
+    <attribute id="audit_updatedBy" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="audit_updatedBy"/>
+      <keyMapping columnObjectName="TB_clusterRule" columnName="audit_updatedBy"/>
     </attribute>
   </attributes>
   <calculatedAttributes/>
@@ -87,13 +102,11 @@
 <layout>
   <shapes>
     <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
-      <upperLeftCorner x="92" y="112"/>
-    
-      <rectangleSize width="160"/>
+      <upperLeftCorner x="40" y="85"/>
     </shape>
   
     <shape expanded="true" modelObjectName="TB_clusterRule" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="92" y="217"/>
+      <upperLeftCorner x="100" y="218"/>
       <rectangleSize height="30" width="160"/>
     </shape>
   </shapes>

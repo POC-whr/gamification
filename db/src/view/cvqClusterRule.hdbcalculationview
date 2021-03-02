@@ -29,8 +29,6 @@
       <viewAttribute id="typeIndicated"/>
       <viewAttribute id="indicatedValue"/>
       <viewAttribute id="status"/>
-      <viewAttribute id="creationDate"/>
-      <viewAttribute id="creationUser"/>
       <viewAttribute id="days"/>
     </viewAttributes>
     <calculatedViewAttributes/>
@@ -54,8 +52,6 @@
       <viewAttribute id="typeIndicated"/>
       <viewAttribute id="indicatedValue"/>
       <viewAttribute id="status"/>
-      <viewAttribute id="creationDate"/>
-      <viewAttribute id="creationUser"/>
       <viewAttribute id="days"/>
       <viewAttribute id="idRule"/>
       <viewAttribute id="idRestriction"/>
@@ -71,8 +67,6 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="typeIndicated" source="typeIndicated"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="indicatedValue" source="indicatedValue"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="status" source="status"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="creationDate" source="creationDate"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="creationUser" source="creationUser"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="days" source="days"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$id$idRule" source="id"/>
     </input>
@@ -101,8 +95,6 @@
       <viewAttribute id="typeIndicated"/>
       <viewAttribute id="indicatedValue"/>
       <viewAttribute id="status"/>
-      <viewAttribute id="creationDate"/>
-      <viewAttribute id="creationUser"/>
       <viewAttribute id="days"/>
       <viewAttribute id="idRule"/>
       <viewAttribute id="idRestriction"/>
@@ -118,8 +110,6 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="typeIndicated" source="typeIndicated"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="indicatedValue" source="indicatedValue"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="status" source="status"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="creationDate" source="creationDate"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="creationUser" source="creationUser"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="days" source="days"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="idRule" source="idRule"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="idRestriction" source="idRestriction"/>
@@ -150,8 +140,6 @@
       <viewAttribute id="typeIndicated"/>
       <viewAttribute id="indicatedValue"/>
       <viewAttribute id="status"/>
-      <viewAttribute id="creationDate"/>
-      <viewAttribute id="creationUser"/>
       <viewAttribute id="days"/>
       <viewAttribute id="idRule"/>
       <viewAttribute id="idRestriction"/>
@@ -169,8 +157,6 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="typeIndicated" source="typeIndicated"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="indicatedValue" source="indicatedValue"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="status" source="status"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="creationDate" source="creationDate"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="creationUser" source="creationUser"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="days" source="days"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="idRule" source="idRule"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="idRestriction" source="idRestriction"/>
@@ -218,35 +204,27 @@
       <descriptions defaultDescription="status"/>
       <keyMapping columnObjectName="J_restriction" columnName="status"/>
     </attribute>
-    <attribute id="creationDate" order="9" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="creationDate"/>
-      <keyMapping columnObjectName="J_restriction" columnName="creationDate"/>
-    </attribute>
-    <attribute id="creationUser" order="10" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="creationUser"/>
-      <keyMapping columnObjectName="J_restriction" columnName="creationUser"/>
-    </attribute>
-    <attribute id="days" order="11" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="days" order="9" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="days"/>
       <keyMapping columnObjectName="J_restriction" columnName="days"/>
     </attribute>
-    <attribute id="idRule" order="12" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="idRule" order="10" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="idRule"/>
       <keyMapping columnObjectName="J_restriction" columnName="idRule"/>
     </attribute>
-    <attribute id="idRestriction" order="13" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="idRestriction" order="11" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="idRestriction"/>
       <keyMapping columnObjectName="J_restriction" columnName="idRestriction"/>
     </attribute>
-    <attribute id="name" order="14" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="name" order="12" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="name"/>
       <keyMapping columnObjectName="J_restriction" columnName="name"/>
     </attribute>
-    <attribute id="description" order="15" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="description" order="13" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="description"/>
       <keyMapping columnObjectName="J_restriction" columnName="description"/>
     </attribute>
-    <attribute id="ruleType" order="16" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="ruleType" order="14" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="ruleType"/>
       <keyMapping columnObjectName="J_restriction" columnName="ruleType"/>
     </attribute>
@@ -265,11 +243,11 @@
     </shape>
   
     <shape expanded="true" modelObjectName="clusterRule" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="14" y="651"/>
+      <upperLeftCorner x="14" y="659"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="restrictionRule" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="304" y="651"/>
+      <upperLeftCorner x="304" y="659"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="J_rules" modelObjectNameSpace="CalculationView">

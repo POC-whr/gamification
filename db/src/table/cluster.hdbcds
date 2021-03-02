@@ -1,8 +1,8 @@
+using types;
 context cluster {
 
 	entity cluster {
-		
-		key	id   : String(32);
-			name : String(250);
+		key	id   : types.id;
+		    name : types.name;
 	}
 };
