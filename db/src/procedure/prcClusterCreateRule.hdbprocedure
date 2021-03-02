@@ -1,0 +1,51 @@
+PROCEDURE "prcClusterCreateRule"(
+	IN 	paramin   "clusterRule.clusterRule",
+	OUT instanceId NVARCHAR(32)
+	
+)
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   AS
+BEGIN
+   /*************************************
+       Write your procedure logic 
+   *************************************/
+   instanceId = NEWUID();
+   
+   insert into  "clusterRule.clusterRule" (
+   	"id"
+	,"idCluster"
+	,"typeBuyer"
+	,"buyerValue"
+	,"recurrence"
+	,"target"
+	,"typeIndicated"
+	,"indicatedValue"
+	,"status"
+	,"days"
+	,"audit.createdOn"
+	,"audit.updatedOn"
+	,"audit.createdBy"
+	,"audit.updatedBy"
+   )
+   select 
+   	:instanceId as "id"
+	,"idCluster"
+	,"typeBuyer"
+	,"buyerValue"
+	,"recurrence"
+	,"target"
+	,"typeIndicated"
+	,"indicatedValue"
+	,"status"
+	,"days"
+	,current_utctimestamp as "audit.createdOn"
+	,null as "audit.updatedOn"
+	,"audit.createdBy"
+	,null as "audit.updatedBy"
+   from :paramin;
+   
+   
+   
+   
+END
