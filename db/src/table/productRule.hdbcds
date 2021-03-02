@@ -1,13 +1,15 @@
+using types;
 context productRule {
 
 	entity productRule {
-	key	id          : String(32);
-		idSaleType  : String(32);
-		name        : String(250);
-		version     : Decimal(14,4);
-		validityIni : UTCTimestamp;
-		validityEnd : UTCTimestamp;
-		validtyDays : Integer;
-		status      : String(1);
+	key	id          : types.id;
+	
+		idSaleType  : types.idSaleType;
+		name        : types.name;
+		version     : types.version;
+		validityIni : types.validityIni;
+		validityEnd : types.validityEnd;
+		validtyDays : types.validtyDays;
+		status      : types.status;
 	}
 };

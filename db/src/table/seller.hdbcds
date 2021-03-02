@@ -1,8 +1,9 @@
+using types;
 context seller {
 
 	entity seller {
 	
-		sellerId    : String(32);
-		nome        : String(50);
+		sellerId    : types.sellerId;
+		nome        : types.nome;
 	}
 };

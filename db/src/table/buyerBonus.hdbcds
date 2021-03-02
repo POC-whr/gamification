@@ -1,9 +1,10 @@
+using types;
 context buyerBonus {
 	
 	entity buyerBonus {
-		key idRule     : String(32);
-		idCluster      : String(32);
-		valueType      : String(1);
-		value          : Decimal(17,4);
+		key idRule     : types.idRule;
+		idCluster      : types.idCluster;
+		valueType      : types.valueType;
+		value          : types.value;
 	}
 };

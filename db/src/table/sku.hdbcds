@@ -1,8 +1,9 @@
+using types;
 context sku {
 
 	entity sku {
-		key	id        : String(50);
-			productId : String(50);
-			isActive  : String(50);
+		key	id        : types.id;
+			productId : types.productId;
+			isActive  : types.isActive;
 	};
 };

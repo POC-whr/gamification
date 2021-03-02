@@ -1,7 +1,8 @@
+using types;
 context categoryTree {
 	
 	entity categoryTree {
-		key	id   : String(50);
-			name : String(50);
+		key	id   : types.id;
+			name : types.name;
 	};
 };

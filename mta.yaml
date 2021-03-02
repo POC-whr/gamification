@@ -28,6 +28,7 @@ modules:
       - name: db
       - name: UAA-service
       - name: hdi_db
+  
 resources:
   - name: hdi_gamedb
     properties:
