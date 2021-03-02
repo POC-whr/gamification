@@ -3,6 +3,7 @@ context productRule {
 
 	entity productRule {
 	key	id          : types.id;
+	
 		idSaleType  : types.idSaleType;
 		name        : types.name;
 		version     : types.version;

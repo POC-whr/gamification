@@ -3,17 +3,13 @@ this.connection = $.hdb.getConnection(
 				"isolationLevel": $.hdb.isolation.READ_COMMITTED
 			});
 
-this.defaultSchema = "";
+
 this.procedureName = "";
-this.packageName = "";
 this.connection.setAutoCommit(false);
 
-function setDefaultSchema(value){this.defaultSchema=value;}
-function getDefaultSchema(){return this.defaultSchema;}
 function setProcedureName(value){this.procedureName=value;}
 function getProcedureName(){return this.procedureName;}
-function setPackageName(value){this.packageName=value;}
-function getPackageName(){return this.packageName;}
+
 
 function loadProcedure()
 {
@@ -21,7 +17,7 @@ function loadProcedure()
 	{
 		
 		
-		return this.connection.loadProcedure(this.defaultSchema, this.packageName + "::" + this.procedureName);
+		return this.connection.loadProcedure(this.procedureName);
 	}
 	catch(e)
 	{   
