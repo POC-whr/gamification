@@ -4,7 +4,9 @@ service {
 The data sets below are responsible for retrieving data from clusters' rules */
 
 //cvqClusterRule
-"cvqClusterRule" as "ClusterRule" key("idRule");
+"cvqClusterRule" as "ClusterRule" key("idRule")
+create using 
+"rule.xsjs:clusterCreateRule.xsjslib::ruleCreate";
 
 //tbRestrictionRule
 "restrictionRule.restrictionRule" as "restrictionRule";
