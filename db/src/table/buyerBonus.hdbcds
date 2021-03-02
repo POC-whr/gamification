@@ -2,7 +2,6 @@ using types;
 context buyerBonus {
 	
 	entity buyerBonus {
-	
 		key idRule     : types.idRule;
 		idCluster      : types.idCluster;
 		valueType      : types.valueType;
