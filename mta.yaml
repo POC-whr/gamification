@@ -25,17 +25,7 @@ modules:
       - name: db
       - name: UAA-service
       - name: hdi_db
-  - name: cluster
-    type: nodejs
-    path: cluster
-    provides:
-      - name: cluster_api
-        properties:
-          url: '${default-url}'
-    requires:
-      - name: db
-      - name: hdi_db
-      - name: UAA-service
+  
 resources:
   - name: hdi_gamedb
     properties:
