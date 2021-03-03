@@ -7,16 +7,7 @@ modules:
     path: db
     requires:
       - name: hdi_db
-  - name: persist
-    type: nodejs
-    path: persist
-    provides:
-      - name: persist_api
-        properties:
-          url: '${default-url}'
-    requires:
-      - name: db
-      - name: hdi_db
+  
   - name: screen
     type: nodejs
     path: screen
@@ -28,24 +19,18 @@ modules:
       - name: db
       - name: UAA-service
       - name: hdi_db
-  - name: tcc
-    type: nodejs
-    path: tcc
-    provides:
-      - name: tcc_api
-        properties:
-          url: '${default-url}'
-  - name: iics_integration
+  
+  - name: iics
     type: nodejs
     path: iics
     provides:
-      - name: iics_integration_api
+      - name: iics_api
         properties:
           url: '${default-url}'
     requires:
       - name: db
       - name: hdi_db
-      - name: UAA-service
+      - name: UAA-serviceMateus
 resources:
   - name: hdi_gamedb
     properties:
@@ -56,4 +41,6 @@ resources:
   - name: hdi_db
     properties:
       hdi-container-name_2: '${service-name}'
+    type: com.sap.xs.hdi-container
+  - name: UAA-serviceMateus
     type: com.sap.xs.hdi-container

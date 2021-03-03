@@ -1,5 +1,0 @@
-service {
-    "vtex.product" as "Products"
-     create using
-	"xsjs:productsCreateMethod.xsjslib::productsCreate";
-}
