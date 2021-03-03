@@ -1,0 +1,9 @@
+using types;
+context iics {
+
+	entity categoryTree {
+		key	id   : types.id;
+			name : types.name;
+	};
+	
+};

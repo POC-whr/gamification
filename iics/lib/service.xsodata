@@ -1,6 +1,6 @@
 service {
 
-"cvqtCategoryTree" as "categoryTree" key("id");
+"iics.categoryTree" as "categoryTree" key("id");
 
 
 }
