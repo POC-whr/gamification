@@ -2,50 +2,18 @@
 "use strict";
 
 $.import("tools","session");
-$.import("tools","audit");
-$.import("tools","conn");
-
 var SESSIONINFO  = $.tools.session;
-var AUDIT        = $.tools.audit;
-var CONN         = $.tools.conn;
-var PROCESS_PATH = "WHR.BUS.d2c.ecommerce.instance";
-var PROCEDURE_PATH = PROCESS_PATH + ".data.procedure";
+
 
 function validateSku(skus) {
 	//Em manutenção
 }
-
-
-
-var instanceObject = function(param)
-{
-	return {
-		
-		idCluster		: param.idCluster,
-		typeBuyer		: param.typeBuyer,
-		buyerValue 	    : param.buyerValue,
-		recurrence		: param.recurrence,
-		target          : param.target,
-		typeIndicated   : param.typeIndicated,
-		indicatedValue  : param.indicatedValue,
-		days            : param.days,
-		status          : param.status
-   
-	};
-};
-/**
+/*
 @param {connection} Connection - The SQL connection used in the OData request
 @param {beforeTableName} String - The name of a temporary table with the single entry before the operation (UPDATE and DELETE events only)
 @param {afterTableName} String -The name of a temporary table with the single entry after the operation (CREATE and UPDATE events only)
 */
 
-function createByProcedure(conn, paramin)
-{
-	conn.setProcedureName("prcinstance");
-	var proc = conn.loadProcedure();
-	var result = proc(paramin);
-	return result.instanceId;
-}
 function ruleCreate(param) {
 
 	try {
@@ -54,22 +22,24 @@ function ruleCreate(param) {
 		var pStmt  = param.connection.prepareStatement("select * from \"" + after + "\"");
 		var result = SESSIONINFO.recordSetToJSON(pStmt.executeQuery(), "rule");
 		var paramin = [];
-		var instanceId = null;
-		
-		for(var i = 0; i <= result.rule.length - 1;i++)
-			{
-				paramin.push(AUDIT.getAuditToCreate(result.rule[i],instanceObject(result.rule[i])));
-			}
-			
-			
-			
-		instanceId = createByProcedure(CONN, paramin);	
-		pStmt = param.connection.prepareStatement('update "' + after + '" set \"id\" = ' + "\'" + instanceId + "\'");
+
+		pStmt = param.connection.prepareStatement("insert into \"clusterRule.clusterRule\" (\"id\", \"idCluster\", \"typeBuyer\",\"buyerValue\",\"recurrence\",\"target\",\"typeIndicated\",\"indicatedValue\",\"status\",\"days\"  ) values(?,?,?,?,?,?,?,?,?,?)");
+        console.log(result.rule[0].id);
+
+		pStmt.setString(1, result.rule[0].id);
+		pStmt.setString(2, result.rule[0].idCluster);
+		pStmt.setString(3, result.rule[0].typeBuyer);
+		pStmt.setString(4, result.rule[0].buyerValue);
+		pStmt.setString(5, result.rule[0].recurrence);
+		pStmt.setString(6, result.rule[0].target);
+		pStmt.setString(7, result.rule[0].typeIndicated);
+		pStmt.setString(8, result.rule[0].indicatedValue);
+		pStmt.setString(9, result.rule[0].status);
+		pStmt.setString(10, result.rule[0].days);
+
+
 		pStmt.executeUpdate();
 		pStmt.close();
-	    		
-			CONN.commit();
-			CONN.close();
 
 	} catch (e) {
 		console.error(e);

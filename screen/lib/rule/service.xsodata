@@ -11,7 +11,7 @@ The data sets below are responsible for retrieving data from clusters' rules */
 //cvqClusterRule
 "cvqClusterRule" as "clusterRule" key("idRule")
 create using 
-"xsjs:clusterCreateRule.xsjslib::ruleCreate";
+"rule.xsjs:clusterCreateRule.xsjslib::ruleCreate";
 
 //tbCluster
 "cluster.cluster" as "cluster";
