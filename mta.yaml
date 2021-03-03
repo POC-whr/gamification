@@ -37,7 +37,7 @@ modules:
           url: '${default-url}'
   - name: iics_integration
     type: nodejs
-    path: iics_integration
+    path: iics
     provides:
       - name: iics_integration_api
         properties:

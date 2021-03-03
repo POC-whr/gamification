@@ -1,0 +1,6 @@
+service {
+
+"cvqtCategoryTree" as "categoryTree" key("id");
+
+
+}
