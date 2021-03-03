@@ -1,0 +1,18 @@
+service {
+
+/*---------- GLOBAL ENTITY SET ----------*/ 
+//GET Restrictions is used for both endpoints
+"cvqtCategoryTree" as "categoryTree" key("id");
+
+
+/*----------  CATEGORY TREE   ----------
+The data sets below are responsible for retrieving data from clusters' rules */
+
+//cvqtCategoryTree
+"cvqtCategoryTree" as "categoryTree" key("id")
+create using 
+"categoryTree.xsjs:categoryTreeCreate.xsjslib::categoryTreeCreate";
+
+//categoryTree.categoryTree
+"categoryTree.categoryTree" as "categoryTree";
+}
