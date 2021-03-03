@@ -45,6 +45,7 @@ modules:
     requires:
       - name: db
       - name: hdi_db
+      - name: UAA-service
 resources:
   - name: hdi_gamedb
     properties:
