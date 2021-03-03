@@ -28,7 +28,23 @@ modules:
       - name: db
       - name: UAA-service
       - name: hdi_db
-  
+  - name: tcc
+    type: nodejs
+    path: tcc
+    provides:
+      - name: tcc_api
+        properties:
+          url: '${default-url}'
+  - name: iics_integration
+    type: nodejs
+    path: iics_integration
+    provides:
+      - name: iics_integration_api
+        properties:
+          url: '${default-url}'
+    requires:
+      - name: db
+      - name: hdi_db
 resources:
   - name: hdi_gamedb
     properties:

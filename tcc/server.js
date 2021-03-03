@@ -8,7 +8,7 @@ var port  = process.env.PORT || 3000;
 var options = {
 	anonymous : true, // remove to authenticate calls
 	auditLog : { logToConsole: true }, // change to auditlog service for productive scenarios
-	redirectUrl : "/rule/service.xsodata?$format=json"
+	redirectUrl : "/index.xsjs"
 };
 
 // configure HANA
