@@ -18,15 +18,17 @@ modules:
       - name: db
       - name: UAA-service
       - name: hdi_db
-
   - name: iics
     type: nodejs
     path: iics
     provides:
-     - name: iics_api
-       properties:
-          url: ${default-url}
-
+      - name: iics_api
+        properties:
+          url: '${default-url}'
+    requires:
+      - name: UAA-service
+      - name: db
+      - name: hdi_db
 resources:
   - name: UAA-service
     type: com.sap.xs.uaa-space
