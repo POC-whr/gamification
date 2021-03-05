@@ -7,7 +7,6 @@ modules:
     path: db
     requires:
       - name: hdi_db
-  
   - name: screen
     type: nodejs
     path: screen
@@ -19,28 +18,10 @@ modules:
       - name: db
       - name: UAA-service
       - name: hdi_db
-  
-  - name: iics
-    type: nodejs
-    path: iics
-    provides:
-      - name: iics_api
-        properties:
-          url: '${default-url}'
-    requires:
-      - name: db
-      - name: hdi_db
-      - name: UAA-serviceMateus
 resources:
-  - name: hdi_gamedb
-    properties:
-      hdi-container-name: '${service-name}'
-    type: com.sap.xs.hdi-container
   - name: UAA-service
-    type: com.sap.xs.hdi-container
+    type: com.sap.xs.uaa-space
   - name: hdi_db
     properties:
       hdi-container-name_2: '${service-name}'
-    type: com.sap.xs.hdi-container
-  - name: UAA-serviceMateus
     type: com.sap.xs.hdi-container

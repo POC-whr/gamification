@@ -1,6 +1,0 @@
-service {
-
-"iics.categoryTree" as "categoryTree" key("id");
-
-
-}
