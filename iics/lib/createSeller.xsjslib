@@ -22,7 +22,7 @@ function sellerCreate(param) {
 
        pStmt = param.connection.prepareStatement("insert into \"seller.seller\" (\"sellerId\",\"nome\") values(?,?)");
        pStmt.setString(1, result.seller[0].sellerId);
-       pStmt.setString(1, result.seller[0].nome);
+       pStmt.setString(2, result.seller[0].nome);
 	 
 	   pStmt.executeUpdate();
 	   pStmt.close();
