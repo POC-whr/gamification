@@ -24,8 +24,9 @@ create using
 The data sets below are responsible for retrieving data from products' rules */
 
 //productRules registration
-"cvqProductRule" as "productRule" key("id");
-	//create using
+"cvqProductRule" as "productRule" key("id")
+create using 
+"rule.xsjs:productCreateRule.xsjslib::ruleCreate";
 	//update using
 	
 //GET SKUs 
@@ -35,7 +36,7 @@ The data sets below are responsible for retrieving data from products' rules */
 "cvqListProductRule" as "listProductRule" key("id");
 
 //GET association between a product rule and its various possible sellers in a single row
-	"cvqProductRule" as "productRule" key("id") navigates ("rulesSellers" as "rulesAssocSellers");
+	"cvqProductRule" as "productRuleAssoc" key("id") navigates ("rulesSellers" as "rulesAssocSellers");
 	"cvqSellerSku"   as "sellerSku"   key("sellerId");
-		association "rulesSellers"  with referential constraint principal "productRule"("id") multiplicity "1" dependent "sellerSku"("sellerId") multiplicity "*";
+		association "rulesSellers"  with referential constraint principal "productRuleAssoc"("id") multiplicity "1" dependent "sellerSku"("sellerId") multiplicity "*";
 }

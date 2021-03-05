@@ -24,15 +24,15 @@
       <viewAttribute id="status"/>
       <viewAttribute id="saleType"/>
       <viewAttribute id="sku"/>
+      <viewAttribute id="idCluster"/>
       <viewAttribute id="valueType"/>
       <viewAttribute id="value"/>
-      <viewAttribute id="description"/>
-      <viewAttribute id="ruleType"/>
+      <viewAttribute id="idRestriction"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="cvqProductRule"/>
   </calculationView>
-  <calculationView xsi:type="Calculation:ProjectionView" id="listSeller">
+  <calculationView xsi:type="Calculation:ProjectionView" id="sellerSku">
     <viewAttributes>
       <viewAttribute id="sellerId"/>
       <viewAttribute id="nome"/>
@@ -41,7 +41,7 @@
     <calculatedViewAttributes/>
     <input node="cvqSellerSku"/>
   </calculationView>
-  <calculationView xsi:type="Calculation:JoinView" id="J_rule_seller" cardinality="C1_N" joinType="leftOuter">
+  <calculationView xsi:type="Calculation:JoinView" id="ruleSeller" cardinality="CN_N" joinType="inner">
     <viewAttributes>
       <viewAttribute id="id"/>
       <viewAttribute id="idSaleType"/>
@@ -53,12 +53,12 @@
       <viewAttribute id="status"/>
       <viewAttribute id="saleType"/>
       <viewAttribute id="sku"/>
+      <viewAttribute id="idCluster"/>
       <viewAttribute id="valueType"/>
       <viewAttribute id="value"/>
-      <viewAttribute id="description"/>
-      <viewAttribute id="ruleType"/>
-      <viewAttribute id="sellerId"/>
+      <viewAttribute id="idRestriction"/>
       <viewAttribute id="nome"/>
+      <viewAttribute id="skuSellerId"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="productRule">
@@ -72,84 +72,84 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="status" source="status"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="saleType" source="saleType"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="sku" source="sku"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="idCluster" source="idCluster"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="valueType" source="valueType"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="value" source="value"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="description" source="description"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="ruleType" source="ruleType"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="idRestriction" source="idRestriction"/>
     </input>
-    <input node="listSeller">
-      <mapping xsi:type="Calculation:AttributeMapping" target="sellerId" source="sellerId"/>
+    <input node="sellerSku">
       <mapping xsi:type="Calculation:AttributeMapping" target="nome" source="nome"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="skuSellerId" source="skuSellerId"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="id" source="sellerId"/>
     </input>
     <joinAttribute name="id"/>
   </calculationView>
 </calculationViews>
-<logicalModel id="J_rule_seller">
+<logicalModel id="ruleSeller">
   <attributes>
     <attribute id="id" order="1" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="id"/>
-      <keyMapping columnObjectName="J_rule_seller" columnName="id"/>
+      <keyMapping columnObjectName="ruleSeller" columnName="id"/>
     </attribute>
     <attribute id="idSaleType" order="2" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="idSaleType"/>
-      <keyMapping columnObjectName="J_rule_seller" columnName="idSaleType"/>
+      <keyMapping columnObjectName="ruleSeller" columnName="idSaleType"/>
     </attribute>
     <attribute id="name" order="3" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="name"/>
-      <keyMapping columnObjectName="J_rule_seller" columnName="name"/>
+      <keyMapping columnObjectName="ruleSeller" columnName="name"/>
     </attribute>
     <attribute id="version" order="4" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="version"/>
-      <keyMapping columnObjectName="J_rule_seller" columnName="version"/>
+      <keyMapping columnObjectName="ruleSeller" columnName="version"/>
     </attribute>
     <attribute id="validityIni" order="5" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="validityIni"/>
-      <keyMapping columnObjectName="J_rule_seller" columnName="validityIni"/>
+      <keyMapping columnObjectName="ruleSeller" columnName="validityIni"/>
     </attribute>
     <attribute id="validityEnd" order="6" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="validityEnd"/>
-      <keyMapping columnObjectName="J_rule_seller" columnName="validityEnd"/>
+      <keyMapping columnObjectName="ruleSeller" columnName="validityEnd"/>
     </attribute>
     <attribute id="validtyDays" order="7" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="validtyDays"/>
-      <keyMapping columnObjectName="J_rule_seller" columnName="validtyDays"/>
+      <keyMapping columnObjectName="ruleSeller" columnName="validtyDays"/>
     </attribute>
     <attribute id="status" order="8" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="status"/>
-      <keyMapping columnObjectName="J_rule_seller" columnName="status"/>
+      <keyMapping columnObjectName="ruleSeller" columnName="status"/>
     </attribute>
     <attribute id="saleType" order="9" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="saleType"/>
-      <keyMapping columnObjectName="J_rule_seller" columnName="saleType"/>
+      <keyMapping columnObjectName="ruleSeller" columnName="saleType"/>
     </attribute>
     <attribute id="sku" order="10" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="sku"/>
-      <keyMapping columnObjectName="J_rule_seller" columnName="sku"/>
+      <keyMapping columnObjectName="ruleSeller" columnName="sku"/>
     </attribute>
-    <attribute id="valueType" order="11" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="idCluster" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="idCluster"/>
+      <keyMapping columnObjectName="ruleSeller" columnName="idCluster"/>
+    </attribute>
+    <attribute id="valueType" order="12" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="valueType"/>
-      <keyMapping columnObjectName="J_rule_seller" columnName="valueType"/>
+      <keyMapping columnObjectName="ruleSeller" columnName="valueType"/>
     </attribute>
-    <attribute id="value" order="12" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="value" order="13" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="value"/>
-      <keyMapping columnObjectName="J_rule_seller" columnName="value"/>
+      <keyMapping columnObjectName="ruleSeller" columnName="value"/>
     </attribute>
-    <attribute id="description" order="13" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="description"/>
-      <keyMapping columnObjectName="J_rule_seller" columnName="description"/>
+    <attribute id="idRestriction" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="idRestriction"/>
+      <keyMapping columnObjectName="ruleSeller" columnName="idRestriction"/>
     </attribute>
-    <attribute id="ruleType" order="14" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="ruleType"/>
-      <keyMapping columnObjectName="J_rule_seller" columnName="ruleType"/>
-    </attribute>
-    <attribute id="sellerId" order="15" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="sellerId"/>
-      <keyMapping columnObjectName="J_rule_seller" columnName="sellerId"/>
-    </attribute>
-    <attribute id="nome" order="16" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="nome" order="15" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="nome"/>
-      <keyMapping columnObjectName="J_rule_seller" columnName="nome"/>
+      <keyMapping columnObjectName="ruleSeller" columnName="nome"/>
+    </attribute>
+    <attribute id="skuSellerId" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="skuSellerId"/>
+      <keyMapping columnObjectName="ruleSeller" columnName="skuSellerId"/>
     </attribute>
   </attributes>
   <calculatedAttributes/>
@@ -166,22 +166,22 @@
     </shape>
   
     <shape expanded="true" modelObjectName="productRule" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="92" y="376.9999988079071"/>
+      <upperLeftCorner x="92.00000000000001" y="356.9999988079071"/>
       <rectangleSize height="30" width="160"/>
     </shape>
-    <shape expanded="true" modelObjectName="listSeller" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="352.00000000000006" y="376.9999988079071"/>
+    <shape expanded="true" modelObjectName="sellerSku" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="302.00000000000006" y="356.9999988079071"/>
       <rectangleSize height="30" width="160"/>
     </shape>
-    <shape expanded="true" modelObjectName="J_rule_seller" modelObjectNameSpace="CalculationView">
+    <shape expanded="true" modelObjectName="ruleSeller" modelObjectNameSpace="CalculationView">
       <upperLeftCorner x="221.11302679000914" y="217"/>
       <rectangleSize height="30" width="160"/>
     </shape>
-    <shape modelObjectName="productRule" modelObjectNameSpace="J_rule_seller" modelObjectType="JoinNodeInput">
+    <shape modelObjectName="productRule" modelObjectNameSpace="ruleSeller" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="142.24072265625"/>
+      <rectangleSize width="146.521484375"/>
     </shape>
-    <shape modelObjectName="listSeller" modelObjectNameSpace="J_rule_seller" modelObjectType="JoinNodeInput">
+    <shape modelObjectName="sellerSku" modelObjectNameSpace="ruleSeller" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="320" y="30"/>
       <rectangleSize width="140.41455078125"/>
     </shape>
