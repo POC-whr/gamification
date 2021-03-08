@@ -1,0 +1,17 @@
+PROCEDURE "prcIcssSeller"(
+	in paramin "seller.seller"
+)
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   AS
+BEGIN
+  upsert "seller.seller" (
+  	"sellerId",
+  	"nome"
+  ) 
+  select 
+  "sellerId",
+  "nome" 
+  from :paramin;
+
+END
