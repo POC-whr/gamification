@@ -35,9 +35,7 @@ function sellerCreate(param) {
 		}
 
 		pStmt = param.connection.prepareStatement("{ call \"prcIcssSeller\" }");
-		
-		
-		pStmt.set(1, paramin);
+		pStmt.setString(1, paramin);
 		pStmt.executeUpdate();
 		pStmt.close();
 
