@@ -36,14 +36,16 @@ function ruleCreate(param) {
 	   pStmt.setString(10,result.rule[0].days);
 	
 	//****INSERT RESTRICTIONS****
-		
+		console.log("vai iniciar restrictions");
 		try {
-	
+			console.log("entrou no try");
+
 			var after = param.afterTableName;
 			var pStmt = param.connection.prepareStatement("select * from \"" + after + "\"");
 			var result = SESSIONINFO.recordSetToJSON(pStmt.executeQuery(), "restriction");
 			var paramin = [];
-	
+			console.log("var paramin");
+
 			for (var i = result.restriction.length - 1; i >= 0; i--) {
 				try {
 					var createRestriction = {
@@ -51,8 +53,11 @@ function ruleCreate(param) {
 						idRestriction: result.restriction[i].idRestriction
 					};
 					paramin.push(createRestriction);
-	
+				console.log("push paramin");
+
 				} catch (e) {
+				console.log("catch");
+
 					console.error(e);
 					throw e;
 				}
