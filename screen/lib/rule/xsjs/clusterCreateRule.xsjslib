@@ -35,15 +35,38 @@ function ruleCreate(param) {
        pStmt.setString(9, result.rule[0].status); 
 	   pStmt.setString(10,result.rule[0].days);
 	
-	   pStmt.executeUpdate();
-	   pStmt.close();
-	   pStmt = param.connection.prepareStatement("insert into \"restrictionRule.restrictionRule\" (\"idRule\", \"idRestriction\") values(?,?)");
-	   for (var i = 0; result.rule[0].idRule.length > i;  i++) {
-		pStmt.setString(1, result.rule[0].idRule[i]);
-    	pStmt.setString(2, result.rule[0].idRestriction[i]);
-	   }
-	   pStmt.executeUpdate();
-	   pStmt.close();
+	//****INSERT RESTRICTIONS****
+		
+		try {
+	
+			var after = param.afterTableName;
+			var pStmt = param.connection.prepareStatement("select * from \"" + after + "\"");
+			var result = SESSIONINFO.recordSetToJSON(pStmt.executeQuery(), "restriction");
+			var paramin = [];
+	
+			for (var i = result.restriction.length - 1; i >= 0; i--) {
+				try {
+					var createRestriction = {
+						idRule: result.restriction[i].idRule,
+						idRestriction: result.restriction[i].idRestriction
+					};
+					paramin.push(createRestriction);
+	
+				} catch (e) {
+					console.error(e);
+					throw e;
+				}
+			}
+	
+			pStmt = param.connection.prepareStatement("{ call \"prcRestrictionRules\" }");
+			pStmt.setString(1, paramin);
+			pStmt.executeUpdate();
+			pStmt.close();
+	
+		} catch (e) {
+			console.error(e);
+			throw e;
+		}
 
 	} catch (e) {
 		console.error(e);
