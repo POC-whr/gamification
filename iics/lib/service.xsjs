@@ -21,7 +21,7 @@ function processRequest() {
 		}
 		if (request.method === $.net.http.POST) 
 		{   
-			request.jsonBody = JSON.parse(bodyString);
+		
 		    seller.sellerCreate( whrhttp.getJsonBody());
 
 		}
