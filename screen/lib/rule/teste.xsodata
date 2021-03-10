@@ -1,0 +1,7 @@
+service {
+
+"apis.headers" as "headers"
+create using
+"rule.xsjs:teste.xsjslib::ruleCreate";
+
+}
