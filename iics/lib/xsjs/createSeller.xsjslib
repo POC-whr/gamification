@@ -2,8 +2,9 @@
 "use strict";
 
 $.import("tools", "session");
+$.import("tools", "whrconn");
 var SESSIONINFO = $.tools.session;
-
+var WHRCONN=  $.tools.whrhttp;
 /*
 @param {connection} Connection - The SQL connection used in the OData request
 @param {beforeTableName} String - The name of a temporary table with the single entry before the operation (UPDATE and DELETE events only)
@@ -20,7 +21,8 @@ function sellerCreate(param) {
 		var paramin = [];
 
 		// pStmt = param.connection.prepareStatement("insert into \"seller.seller\" (\"sellerId\", \"nome\" ) values(?,?)");
-		for (var i = result.seller.length - 1; i >= 0; i--) {
+		 $.trace.debug("Type your log comments here");
+		for (var i = result.seller.length -1 ; i >= 0; i--) {
 			try {
 				var createSeller = {
 					sellerId: result.seller[i].sellerId,
@@ -33,13 +35,13 @@ function sellerCreate(param) {
 				throw e;
 			}
 		}
+		
+		WHRCONN.setProcedureName("prcIcssSeller");
+		var proc = WHRCONN.loadProcedure();
+		proc(paramin);
+		WHRCONN.commit();
+		 
 
-		pStmt = param.connection.prepareStatement("{ call \"prcIcssSeller\" }");
-		
-		
-		pStmt.set(1, paramin);
-		pStmt.executeUpdate();
-		pStmt.close();
 
 	} catch (e) {
 		console.error(e);
