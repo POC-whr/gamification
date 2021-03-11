@@ -1,0 +1,17 @@
+PROCEDURE "prcProduct"(
+	in paramin "product.product"
+)
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+  AS
+BEGIN
+  upsert  "product.product" ( 
+  	"id"
+  	,"productCategories"
+  	,"IsActive"
+  )select 
+    "id"
+  	,"productCategories"
+  	,"IsActive"
+  	from :paramin;
+END

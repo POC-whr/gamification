@@ -1,0 +1,18 @@
+PROCEDURE "prcSku"( 
+	in paramin "sku.sku"
+)
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   AS
+BEGIN
+  upsert "sku.sku" (
+  	"id"
+  ,"productId"
+  ,"isActive")
+  select 
+  "id"
+  ,"productId"
+  ,"isActive"
+  from :paramin;
+  
+END

@@ -1,0 +1,9 @@
+PROCEDURE "prcCategory"( 
+	in paramin "categoryTree.categoryTree"
+)
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   AS
+BEGIN
+  upsert "categoryTree.categoryTree"("id","name") select "id", "name" from :paramin;
+END
