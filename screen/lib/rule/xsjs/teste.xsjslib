@@ -5,7 +5,6 @@ $.import("tools","session");
 var SESSIONINFO  = $.tools.session;
 
 
-
 function validateSku(skus) {
 	//Em manutenção
 }
@@ -27,22 +26,31 @@ function ruleCreate(param) {
 		var paramin = [];
 
 
-       pStmt = param.connection.prepareStatement("insert into \"clusterRule.clusterRule\" (\"id\", \"idCluster\", \"typeBuyer\", \"buyerValue\",\"recurrence\",\"target\",\"typeIndicated\",\"indicatedValue\",\"status\",\"days\" ) values(?,?,?,?,?,?,?,?,?,?)");
+          /*id			: String(32);
+			apiId		: Integer;
+			name		: String(40);
+			value		: String(50);
+			APIS		: association [0..*] to apis on APIS.id = apiId;*/
+			
+/*			id 			: Integer;
+			typeId		: Integer;
+			maxRecord	: Integer;
+			endpoint	: String(300);
+			clientId	: String(15);*/
+
+      pStmt = param.connection.prepareStatement("insert into \"apis.headers\" (\"id\", \"apiId\", \"name\", \"value\",\"APIS\") values(?,?,?,?,?)"); 
+ //      pStmt = param.connection.prepareStatement("insert into \"apis.headers\" (\"id\", \"apiId\", \"name\", \"value\") values(?,?,?,?)"); 
+
        pStmt.setString(1, result.rule[0].id);
-       pStmt.setString(2, result.rule[0].idCluster);
-       pStmt.setString(3, result.rule[0].typeBuyer);
-       pStmt.setString(4, result.rule[0].buyerValue);
-       pStmt.setString(5, result.rule[0].recurrence);
-       pStmt.setString(6, result.rule[0].target);
-       pStmt.setString(7, result.rule[0].typeIndicated);
-       pStmt.setString(8, result.rule[0].indicatedValue);
-       pStmt.setString(9, result.rule[0].status);
-	   pStmt.setString(10,result.rule[0].days);
+       pStmt.setInteger(2, result.rule[0].apiId);
+       pStmt.setString(3, result.rule[0].name);
+       pStmt.setString(4, result.rule[0].value);
+       pStmt.setString(5, result.rule[0].APIS);
 	 
 	   pStmt.executeUpdate();
 	   pStmt.close();
 	   
-	   //****INSERT RESTRICTIONS****
+/*	   //****INSERT RESTRICTIONS****
 		try {
 		pStmt = param.connection.prepareStatement("insert into \"restrictionRule.restrictionRule\" (\"idRule\",\"idRestriction\") values(?,?)");
 
@@ -74,7 +82,7 @@ function ruleCreate(param) {
 		} catch (e) {
 			console.error(e);
 			throw e;
-		}
+		}*/
 
 	} catch (e) {
 		console.error(e);
