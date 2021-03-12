@@ -18,6 +18,61 @@ modules:
       - name: db
       - name: UAA-service
       - name: hdi_db
+  - name: iics
+    type: nodejs
+    path: iics
+    provides:
+      - name: iics_api
+        properties:
+          url: '${default-url}'
+    requires:
+      - name: UAA-service
+      - name: db
+      - name: hdi_db
+  - name: seller
+    type: nodejs
+    path: seller
+    provides:
+      - name: seller_api
+        properties:
+          url: '${default-url}'
+    requires:
+      - name: UAA-service
+      - name: db
+      - name: hdi_db
+  - name: sku
+    type: nodejs
+    path: sku
+    provides:
+      - name: sku_api
+        properties:
+          url: '${default-url}'
+    requires:
+      - name: UAA-service
+      - name: hdi_db
+      - name: db
+  - name: category
+    type: nodejs
+    path: category
+    provides:
+      - name: category_api
+        properties:
+          url: '${default-url}'
+    requires:
+      - name: UAA-service
+      - name: hdi_db
+      - name: db
+  - name: product
+    type: nodejs
+    path: product
+    provides:
+      - name: product_api
+        properties:
+          url: '${default-url}'
+    requires:
+      - name: UAA-service
+      - name: hdi_db
+      - name: db
 resources:
   - name: UAA-service
     type: com.sap.xs.uaa-space

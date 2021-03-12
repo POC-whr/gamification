@@ -1,0 +1,5 @@
+service{
+	 "cvqtSeller" as "seller" key("sellerId")
+	 create using 
+	 "xsjs:createSeller.xsjslib::sellerCreate";
+}
