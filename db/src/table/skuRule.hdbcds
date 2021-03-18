@@ -3,6 +3,6 @@ context skuRule {
 
 	entity skuRule {
 	key	idSkuRule : types.idSkuRule;
-		sku       : types.sku;
+	key sku       : types.sku;
 	}
 };

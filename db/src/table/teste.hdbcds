@@ -1,0 +1,26 @@
+context teste {
+
+	Entity apiType{
+		key id 			: Integer;
+			type		: String(30); //selling -- cancelling
+	};
+	
+	Entity apis{
+		key id 			: Integer;
+			typeId		: Integer;
+			maxRecord	: Integer;
+			endpoint	: String(300);
+			clientId	: String(15);
+			
+	};
+	
+	Entity headers
+	{
+		key	id			: String(32);
+			apiId		: Integer;
+			name		: String(40);
+			value		: String(50);
+			APIS		: association [0..*] to apis on APIS.id = apiId;
+	};
+	
+};

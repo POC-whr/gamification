@@ -24,17 +24,9 @@ function create(param) {
 		var paramin = [];
 
 
-       pStmt = param.connection.prepareStatement("insert into \"productRule.productRule\" (\"id\", \"idSaleType\", \"name\", \"version\",\"validityIni\",\"validityEnd\",\"validtyDays\",\"status\") values(?,?,?,?,?,?,?,?)");
-    
-       pStmt.setString(1, result.rule[0].id);
-       pStmt.setString(2, result.rule[0].idSaleType);
-       pStmt.setString(3, result.rule[0].name);
-       pStmt.setString(4, result.rule[0].version);
-       pStmt.setString(5, result.rule[0].validityIni);
-       pStmt.setString(6, result.rule[0].validityEnd);
-       pStmt.setString(7, result.rule[0].validtyDays);
-       pStmt.setString(8, result.rule[0].status);
-
+       pStmt = param.connection.prepareStatement("insert into \"skuRule.skuRule\" (\"idSkuRule\", \"sku\") values(?,?)");
+       pStmt.setString(1, result.rule[0].idSkuRule);
+       pStmt.setString(2, result.rule[0].sku);
 
 	   pStmt.executeUpdate();
 	   pStmt.close();

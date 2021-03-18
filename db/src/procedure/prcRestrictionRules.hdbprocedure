@@ -1,0 +1,18 @@
+PROCEDURE "prcRestrictionRules"
+(IN paramin "restrictionRule.restrictionRule")
+
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   AS
+   
+BEGIN
+	UPSERT "restrictionRule.restrictionRule" (
+		"idRule",
+		"idRestriction"
+	)
+	SELECT 
+		"idRule",
+		"idRestriction"
+	FROM :paramin;
+
+END

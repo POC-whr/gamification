@@ -5,6 +5,7 @@ $.import("tools","session");
 var SESSIONINFO  = $.tools.session;
 
 
+
 function validateSku(skus) {
 	//Em manutenção
 }
@@ -14,7 +15,7 @@ function validateSku(skus) {
 @param {afterTableName} String -The name of a temporary table with the single entry after the operation (CREATE and UPDATE events only)
 */
 
-function ruleCreate(param) {
+function create(param) {
 
 	try {
 		
@@ -34,11 +35,11 @@ function ruleCreate(param) {
        pStmt.setString(7, result.rule[0].typeIndicated);
        pStmt.setString(8, result.rule[0].indicatedValue);
        pStmt.setString(9, result.rule[0].status);
-	   pStmt.setString(10,result.rule[0].days);
+	   pStmt.setInteger(10,result.rule[0].days);
 	 
-
 	   pStmt.executeUpdate();
 	   pStmt.close();
+	   
 
 	} catch (e) {
 		console.error(e);
