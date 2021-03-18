@@ -1,0 +1,19 @@
+PROCEDURE "prcSkuValidate"(
+	in saleType NVARCHAR(100),
+	in paramin "sku.sku",
+	out paramout "sku.sku"
+)
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+  AS
+BEGIN
+
+paramout = 
+		select b."id"
+			 , a."productId"
+			 , b."isActive"
+		  from :paramin as a
+		  left outer join "cvqSkuValidate" as b on a."productId" = b."productId"
+		 where b."id" is null 
+		    or b."saleType" != :saleType;
+END
