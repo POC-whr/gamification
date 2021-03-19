@@ -99,6 +99,8 @@
       <viewAttribute id="idRule"/>
       <viewAttribute id="idRestriction"/>
       <viewAttribute id="name"/>
+    
+      <viewAttribute id="idRule_1"/>
     </viewAttributes>
     <calculatedViewAttributes/>
     <input node="J_rules">
@@ -113,6 +115,8 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="days" source="days"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="idRule" source="idRule"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="idRestriction" source="idRestriction"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="idRule_1" source="idRule"/>
     </input>
     <input node="cluster">
       <mapping xsi:type="Calculation:AttributeMapping" target="name" source="name"/>
@@ -279,7 +283,7 @@
       <rectangleSize width="250"/>
     </shape>
     <shape expanded="true" modelObjectName="restriction" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="489" y="356"/>
+      <upperLeftCorner x="492" y="402"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="J_restriction" modelObjectNameSpace="CalculationView">

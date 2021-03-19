@@ -1,36 +1,33 @@
 service {
 
-/*---------- GLOBAL ENTITY SET ----------*/ 
-//GET Restrictions is used for both endpoints
-"cvqtRestrictionRule" as "restrictionRule" key("idRule");
+"cvqtRestrictionRule" as "restrictionRule" key("idRule")
+create using 
+"rule.xsjs:restrictionRule.xsjs::create";
+
+"cluster.cluster" as "cluster";
+
+"cvqtSkuRule" as "skuRule" key ("idSkuRule","sku")
+create using 
+"rule.xsjs:skuRule.xsjslib::create";
+
+/*Regras */
 
 
-/*----------  CLUSTER   ----------
-The data sets below are responsible for retrieving data from clusters' rules */
-
-//cvqClusterRule
 "cvqClusterRule" as "clusterRule" key("idRule")
 create using 
-"rule.xsjs:clusterCreateRule.xsjslib::ruleCreate";
-
-//tbCluster
-"cluster.cluster" as "cluster";
-    
-//tbClusterRule
-"clusterRule.clusterRule" as "clusterRule";
+"rule.xsjs:clusterCreateRule.xsjslib::create";
 
 
-/*----------   PRODUCT   ----------
-The data sets below are responsible for retrieving data from products' rules */
 
-//productRules registration
 "cvqProductRule" as "productRule" key("id")
 create using 
-"rule.xsjs:productCreateRule.xsjslib::ruleCreate";
-	//update using
-	
-//GET SKUs 
-"cvqtSkuRule" as "skuRule" key("idSkuRule");
+"rule.xsjs:productCreateRule.xsjslib::create";
+
+
+
+
+
+
 
 //GET Product Rules: it lists product rules and sellers as mutiple entries - without association 
 "cvqListProductRule" as "listProductRule" key("id");
@@ -39,4 +36,5 @@ create using
 	"cvqProductRule" as "productRuleAssoc" key("id") navigates ("rulesSellers" as "rulesAssocSellers");
 	"cvqSellerSku"   as "sellerSku"   key("sellerId");
 		association "rulesSellers"  with referential constraint principal "productRuleAssoc"("id") multiplicity "1" dependent "sellerSku"("sellerId") multiplicity "*";
+
 }

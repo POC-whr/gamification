@@ -15,11 +15,9 @@ function validateSku(skus) {
 @param {afterTableName} String -The name of a temporary table with the single entry after the operation (CREATE and UPDATE events only)
 */
 
-function ruleCreate(param) {
+function create(param) {
 
 	try {
-		
-		console.log("entrou na função");
 		
 		var after  = param.afterTableName;
 		var pStmt  = param.connection.prepareStatement("select * from \"" + after + "\"");
@@ -28,53 +26,20 @@ function ruleCreate(param) {
 
 
        pStmt = param.connection.prepareStatement("insert into \"clusterRule.clusterRule\" (\"id\", \"idCluster\", \"typeBuyer\", \"buyerValue\",\"recurrence\",\"target\",\"typeIndicated\",\"indicatedValue\",\"status\",\"days\" ) values(?,?,?,?,?,?,?,?,?,?)");
-       pStmt.setString(1, result.rule[0].id);
+       pStmt.setString(1, result.rule[0].idRule);
        pStmt.setString(2, result.rule[0].idCluster);
        pStmt.setString(3, result.rule[0].typeBuyer);
-       pStmt.setString(4, result.rule[0].buyerValue);
-       pStmt.setString(5, result.rule[0].recurrence);
-       pStmt.setString(6, result.rule[0].target);
+       pStmt.setDecimal(4, result.rule[0].buyerValue);
+       pStmt.setDecimal(5, result.rule[0].recurrence);
+       pStmt.setDecimal(6, result.rule[0].target);
        pStmt.setString(7, result.rule[0].typeIndicated);
-       pStmt.setString(8, result.rule[0].indicatedValue);
+       pStmt.setDecimal(8, result.rule[0].indicatedValue);
        pStmt.setString(9, result.rule[0].status);
-	   pStmt.setString(10,result.rule[0].days);
+	   pStmt.setInteger(10,result.rule[0].days);
 	 
 	   pStmt.executeUpdate();
 	   pStmt.close();
 	   
-	   //****INSERT RESTRICTIONS****
-		try {
-		pStmt = param.connection.prepareStatement("insert into \"restrictionRule.restrictionRule\" (\"idRule\",\"idRestriction\") values(?,?)");
-
-			var after = param.afterTableName;
-			var pStmt = param.connection.prepareStatement("select * from \"" + after + "\"");
-			var result = SESSIONINFO.recordSetToJSON(pStmt.executeQuery(), "restriction");
-			var paramin = [];
-
-			for (var i = result.idRestriction.length - 1; i >= 0; i--) {
-				try {
-					var createRestriction = {
-						idRule: result.idRestriction[i],
-						idRestriction: result.idRestriction[i]
-					};
-					paramin.push(createRestriction);
-
-				} catch (e) {
-
-					console.error(e);
-					throw e;
-				}
-			}
-	
-			pStmt = param.connection.prepareStatement("{ call \"prcRestrictionRules\" }");
-			pStmt.setString(1, paramin);
-			pStmt.executeUpdate();
-			pStmt.close();
-	
-		} catch (e) {
-			console.error(e);
-			throw e;
-		}
 
 	} catch (e) {
 		console.error(e);

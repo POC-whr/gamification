@@ -1,4 +1,4 @@
-context apis {
+context teste {
 
 	Entity apiType{
 		key id 			: Integer;
@@ -22,5 +22,5 @@ context apis {
 			value		: String(50);
 			APIS		: association [0..*] to apis on APIS.id = apiId;
 	};
+	
 };
-
