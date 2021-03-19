@@ -73,6 +73,17 @@ modules:
       - name: UAA-service
       - name: hdi_db
       - name: db
+  - name: validate
+    type: nodejs
+    path: validate
+    provides:
+      - name: validate_api
+        properties:
+          url: '${default-url}'
+    requires:
+      - name: UAA-service
+      - name: hdi_db
+      - name: db
 resources:
   - name: UAA-service
     type: com.sap.xs.uaa-space

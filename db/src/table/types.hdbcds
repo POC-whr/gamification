@@ -39,7 +39,7 @@ context types {
 	type stockKeepingUnitId       : String(50);
 	type sellerStockKeepingUnitId : String(50);
 	type updateDate               : String(50);
-	 
+	type sellerSaleTypeId         : String(50);
 	
 	
 	type Audit{
