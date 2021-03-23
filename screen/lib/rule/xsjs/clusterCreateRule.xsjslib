@@ -45,12 +45,10 @@ function create(param) {
 		WHRCONN.setProcedureName("prcClusterCreateRule");
 		var proc = WHRCONN.loadProcedure();
 		var result = proc(paramin);
-		var instanceId = result.INSTANCEID;                         
+	                      
 	    pStmt.execute();
 	    pStmt.close();
-			
-		
-		
+	    
 
 	} catch (e) {
 		console.error(e);

@@ -1,0 +1,44 @@
+PROCEDURE "pruProductRule"( 
+	IN 	paramin   "productRule.productRule",
+	OUT instanceId NVARCHAR(32)
+	
+)
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   AS
+BEGIN
+   /*************************************
+       Write your procedure logic 
+   *************************************/
+   instanceId = NEWUID();
+   
+   UPDATE "ProductRule"  
+   SET "status"='N' 
+   FROM "productRule.productRule" AS "ProductRule"  
+   INNER JOIN :paramin as "param" 
+     ON "ProductRule"."id" = "param"."id";
+   
+   insert into  "productRule.productRule" (
+   "id",
+	"idSaleType",
+	"name",
+	"version",
+	"validityIni",
+	"validityEnd",
+	"validtyDays",
+	"status"
+   )
+   select 
+    :instanceId,
+	"idSaleType",
+	"name",
+	"version",
+	"validityIni",
+	"validityEnd",
+	"validtyDays",
+	"status"
+   from :paramin;
+   
+   
+
+END

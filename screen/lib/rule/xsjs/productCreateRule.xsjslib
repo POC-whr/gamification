@@ -1,8 +1,10 @@
 /*eslint no-console: 0, no-unused-vars: 0, dot-notation: 0, no-use-before-define: 0, no-redeclare: 0*/
 "use strict";
 
-$.import("tools","session");
-var SESSIONINFO  = $.tools.session;
+$.import("rule.tools", "session");
+$.import("rule.tools", "whrconn");
+var SESSIONINFO = $.rule.tools.session;
+var WHRCONN = $.rule.tools.whrconn;
 
 
 function validateSku(skus) {
@@ -38,6 +40,41 @@ function create(param) {
 
 	   pStmt.executeUpdate();
 	   pStmt.close();
+
+	} catch (e) {
+		console.error(e);
+		throw e;
+	}
+}
+function update(param) {
+
+	try {
+
+		var after = param.afterTableName;
+		var pStmt = param.connection.prepareStatement("select * from \"" + after + "\"");
+		var result = SESSIONINFO.recordSetToJSON(pStmt.executeQuery(), "rule");
+		var paramin = [];
+	
+		for(var i = 0; i <= result.rule.length - 1;i++)
+		{
+			var rule = {
+				id: result.rule[i].id,
+				idSaleType: result.rule[i].idSaleType,
+				name: result.rule[i].name,
+				version: result.rule[i].version,
+				validityIni: result.rule[i].validityIni,
+				validityEnd: result.rule[i].validityEnd,
+				status: result.rule[i].status
+			};
+			paramin.push(rule);
+		}
+		
+		WHRCONN.setProcedureName("pruProductRule");
+		var proc = WHRCONN.loadProcedure();
+		proc(paramin);
+		WHRCONN.commit();
+		WHRCONN.close();
+
 
 	} catch (e) {
 		console.error(e);
