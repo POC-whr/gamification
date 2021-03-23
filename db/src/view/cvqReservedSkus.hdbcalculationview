@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="cvqReservedSkus" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="cvqReserv"/>
+<localVariables>
+  <variable id="dateIni" parameter="true">
+    <descriptions defaultDescription="Inicial date"/>
+    <variableProperties datatype="TIMESTAMP" mandatory="true" defaultValue="">
+      <valueDomain type="empty"/>
+      <selection multiLine="false" type="SingleValue"/>
+    </variableProperties>
+  </variable>
+  <variable id="dateFinal" parameter="true">
+    <descriptions defaultDescription="Final date"/>
+    <variableProperties datatype="TIMESTAMP" mandatory="true">
+      <valueDomain type="empty"/>
+      <selection multiLine="false" type="SingleValue"/>
+    </variableProperties>
+  </variable>
+  <variable id="saleTypeInput" parameter="true">
+    <descriptions defaultDescription="sale Type"/>
+    <variableProperties datatype="NVARCHAR" length="20" mandatory="true">
+      <valueDomain type="empty"/>
+      <selection multiLine="false" type="SingleValue"/>
+    </variableProperties>
+  </variable>
+</localVariables>
+<variableMappings/>
+<dataSources>
+  <DataSource id="cvqtProductRule">
+    <resourceUri>cvqtProductRule</resourceUri>
+  </DataSource>
+  <DataSource id="cvqtSkuRule">
+    <resourceUri>cvqtSkuRule</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="rules">
+    <viewAttributes>
+      <viewAttribute id="id"/>
+      <viewAttribute id="idSaleType"/>
+      <viewAttribute id="name"/>
+      <viewAttribute id="version"/>
+      <viewAttribute id="validityIni"/>
+      <viewAttribute id="validityEnd"/>
+      <viewAttribute id="validtyDays"/>
+      <viewAttribute id="status"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="cvqtProductRule"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="skus">
+    <viewAttributes>
+      <viewAttribute id="idSkuRule"/>
+      <viewAttribute id="sku"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="cvqtSkuRule"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="skuRule" cardinality="CN_N" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="id"/>
+      <viewAttribute id="idSaleType"/>
+      <viewAttribute id="name"/>
+      <viewAttribute id="version"/>
+      <viewAttribute id="validityIni"/>
+      <viewAttribute id="validityEnd"/>
+      <viewAttribute id="validtyDays"/>
+      <viewAttribute id="status"/>
+      <viewAttribute id="sku"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="rules">
+      <mapping xsi:type="Calculation:AttributeMapping" target="id" source="id"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="idSaleType" source="idSaleType"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="name" source="name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="version" source="version"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="validityIni" source="validityIni"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="validityEnd" source="validityEnd"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="validtyDays" source="validtyDays"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="status" source="status"/>
+    </input>
+    <input node="skus">
+      <mapping xsi:type="Calculation:AttributeMapping" target="sku" source="sku"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="id" source="idSkuRule"/>
+    </input>
+    <joinAttribute name="id"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="reserved">
+    <viewAttributes>
+      <viewAttribute id="id"/>
+      <viewAttribute id="idSaleType"/>
+      <viewAttribute id="name"/>
+      <viewAttribute id="version"/>
+      <viewAttribute id="validityIni"/>
+      <viewAttribute id="validityEnd"/>
+      <viewAttribute id="validtyDays"/>
+      <viewAttribute id="status"/>
+      <viewAttribute id="sku"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="reserved" datatype="INTEGER" expressionLanguage="SQL">
+        <formula>1</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="skuRule"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:AggregationView" id="aggSku">
+    <viewAttributes>
+      <viewAttribute id="id"/>
+      <viewAttribute id="reserved"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="reserved"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="aggSku">
+  <attributes>
+    <attribute id="id" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="id"/>
+      <keyMapping columnObjectName="aggSku" columnName="id"/>
+    </attribute>
+    <attribute id="reserved" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="reserved"/>
+      <keyMapping columnObjectName="aggSku" columnName="reserved"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="243.4012701828858" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="rules" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="123" y="581.9999976158142"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="skus" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="354.00000000000006" y="581.9999976158142"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="skuRule" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="242.98453709850173" y="447.9999988079071"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="rules" modelObjectNameSpace="skuRule" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="142.24072265625"/>
+    </shape>
+    <shape modelObjectName="skus" modelObjectNameSpace="skuRule" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="136.13916015625"/>
+    </shape>
+    <shape expanded="true" modelObjectName="reserved" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="241.98453709850176" y="340.9999988079071"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="aggSku" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="243.4012701828858" y="217"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

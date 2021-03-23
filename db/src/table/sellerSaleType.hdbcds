@@ -1,0 +1,8 @@
+using types;
+context sellerSaleType {
+
+	entity sellerSaleType {
+		key sellerId                : types.sellerId;
+		key idSaleType              : types.idSaleType;
+	}
+};
