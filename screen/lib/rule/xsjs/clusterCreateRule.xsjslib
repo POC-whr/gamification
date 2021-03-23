@@ -1,10 +1,10 @@
 /*eslint no-console: 0, no-unused-vars: 0, dot-notation: 0, no-use-before-define: 0, no-redeclare: 0*/
 "use strict";
 
-$.import("tools","session");
-var SESSIONINFO  = $.tools.session;
-
-
+$.import("rule.tools", "session");
+$.import("rule.tools", "whrconn");
+var SESSIONINFO = $.rule.tools.session;
+var WHRCONN = $.rule.tools.whrconn;
 
 function validateSku(skus) {
 	//Em manutenção
@@ -18,28 +18,78 @@ function validateSku(skus) {
 function create(param) {
 
 	try {
-		
-		var after  = param.afterTableName;
-		var pStmt  = param.connection.prepareStatement("select * from \"" + after + "\"");
+
+		var after = param.afterTableName;
+		var pStmt = param.connection.prepareStatement("select * from \"" + after + "\"");
 		var result = SESSIONINFO.recordSetToJSON(pStmt.executeQuery(), "rule");
 		var paramin = [];
+ 
+			for(var i = 0; i <= result.rule.length - 1;i++)
+		{
+			var rule = {
+				id: null,
+				idCluster: result.rule[i].idCluster,
+				typeBuyer: result.rule[i].typeBuyer,
+				buyerValue: result.rule[i].buyerValue,
+				recurrence: result.rule[i].recurrence,
+				target: result.rule[i].target,
+				typeIndicated: result.rule[i].typeIndicated,
+				indicatedValue: result.rule[i].indicatedValue,
+				status: result.rule[i].status,
+				days: result.rule[i].days
+				
+			};
+			paramin.push(rule);
+		}
+		
+		WHRCONN.setProcedureName("prcClusterCreateRule");
+		var proc = WHRCONN.loadProcedure();
+		var result = proc(paramin);
+		var instanceId = result.INSTANCEID;                         
+	    pStmt.execute();
+	    pStmt.close();
+			
+		
+		
 
+	} catch (e) {
+		console.error(e);
+		throw e;
+	}
+}
+function update(param) {
 
-       pStmt = param.connection.prepareStatement("insert into \"clusterRule.clusterRule\" (\"id\", \"idCluster\", \"typeBuyer\", \"buyerValue\",\"recurrence\",\"target\",\"typeIndicated\",\"indicatedValue\",\"status\",\"days\" ) values(?,?,?,?,?,?,?,?,?,?)");
-       pStmt.setString(1, result.rule[0].idRule);
-       pStmt.setString(2, result.rule[0].idCluster);
-       pStmt.setString(3, result.rule[0].typeBuyer);
-       pStmt.setDecimal(4, result.rule[0].buyerValue);
-       pStmt.setDecimal(5, result.rule[0].recurrence);
-       pStmt.setDecimal(6, result.rule[0].target);
-       pStmt.setString(7, result.rule[0].typeIndicated);
-       pStmt.setDecimal(8, result.rule[0].indicatedValue);
-       pStmt.setString(9, result.rule[0].status);
-	   pStmt.setInteger(10,result.rule[0].days);
-	 
-	   pStmt.executeUpdate();
-	   pStmt.close();
-	   
+	try {
+
+		var after = param.afterTableName;
+		var pStmt = param.connection.prepareStatement("select * from \"" + after + "\"");
+		var result = SESSIONINFO.recordSetToJSON(pStmt.executeQuery(), "rule");
+		var paramin = [];
+	
+		for(var i = 0; i <= result.rule.length - 1;i++)
+		{
+			var rule = {
+				id: result.rule[i].idRule,
+				idCluster: result.rule[i].idCluster,
+				typeBuyer: result.rule[i].typeBuyer,
+				buyerValue: result.rule[i].buyerValue,
+				recurrence: result.rule[i].recurrence,
+				target: result.rule[i].target,
+				typeIndicated: result.rule[i].typeIndicated,
+				indicatedValue: result.rule[i].indicatedValue,
+				status: result.rule[i].status,
+				days: result.rule[i].days
+				
+			};
+			paramin.push(rule);
+		}
+		
+		WHRCONN.setProcedureName("pruClusterRule");
+		var proc = WHRCONN.loadProcedure();
+		proc(paramin);
+		WHRCONN.commit();
+		WHRCONN.close();
+
 
 	} catch (e) {
 		console.error(e);

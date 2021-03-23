@@ -1,0 +1,20 @@
+context exemplo {
+    entity Team {
+        key RaceId    : String(20);
+        key TeamId    : String(20);
+            TeamName  : String(50);
+            Company   : String(50);
+            Team2Laps : association[1, *] to Lap  on Team2Laps.RaceId = RaceId
+                                                 and Team2Laps.TeamId = TeamId;
+    }
+
+    entity Lap {
+        key RaceId   : String(20);
+        key LapId    : String(20);
+        key TeamId   : String(20);
+            PilotId  : String(20);
+            LapTime  : String(15);
+            AvgSpeed : Decimal(5, 2);
+            OutFlag  : String(1);
+    }
+};

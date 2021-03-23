@@ -1,0 +1,51 @@
+PROCEDURE "pruClusterRule"( 	
+	IN 	paramin   "clusterRule.clusterRule",
+	OUT instanceId NVARCHAR(32)
+	
+)
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   AS
+BEGIN
+   /*************************************
+       Write your procedure logic 
+   *************************************/
+   instanceId = NEWUID();
+   
+   UPDATE "clusterRule"  
+   SET "status"='N' 
+   FROM "clusterRule.clusterRule" AS "clusterRule"  
+   INNER JOIN :paramin as "param" 
+     ON "clusterRule"."id" = "param"."id";
+
+   INSERT INTO  "clusterRule.clusterRule" (
+   	"id"
+	,"idCluster"
+	,"typeBuyer"
+	,"buyerValue"
+	,"recurrence"
+	,"target"
+	,"typeIndicated"
+	,"indicatedValue"
+	,"status"
+	,"days"
+
+   )
+   select 
+   	:instanceId as "id"
+	,"idCluster"
+	,"typeBuyer"
+	,"buyerValue"
+	,"recurrence"
+	,"target"
+	,"typeIndicated"
+	,"indicatedValue"
+	,"status"
+	,"days"
+
+   from :paramin;
+   
+   
+   
+   
+END

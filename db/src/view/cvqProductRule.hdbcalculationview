@@ -43,7 +43,7 @@
     <calculatedViewAttributes/>
     <input node="cvqtSaleType"/>
   </calculationView>
-  <calculationView xsi:type="Calculation:JoinView" id="ruleSaleType" cardinality="CN_N" joinType="leftOuter">
+  <calculationView xsi:type="Calculation:JoinView" id="ruleSaleType" cardinality="C1_N" joinType="leftOuter">
     <viewAttributes>
       <viewAttribute id="id"/>
       <viewAttribute id="idSaleType"/>
@@ -283,7 +283,7 @@
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="saleType" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="302" y="776"/>
+      <upperLeftCorner x="329" y="775"/>
       <rectangleSize height="30" width="160"/>
     </shape>
     <shape expanded="true" modelObjectName="ruleSaleType" modelObjectNameSpace="CalculationView">
@@ -348,4 +348,4 @@
     </shape>
   </shapes>
 </layout>
-</Calculation:scenario>
+</Calculation:scenario>  
